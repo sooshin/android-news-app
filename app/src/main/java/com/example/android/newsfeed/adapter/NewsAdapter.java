@@ -1,0 +1,73 @@
+package com.example.android.newsfeed.adapter;
+
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.android.newsfeed.News;
+import com.example.android.newsfeed.R;
+
+import java.util.List;
+
+/**
+ * {@link NewsAdapter} is a {@link NewsAdapter} that can provide a layout for each
+ */
+
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
+    private Context mContext;
+    private List<News> mNews;
+
+    public NewsAdapter(Context context, List<News> news) {
+        mContext = context;
+        mNews = news;
+    }
+
+    @Override
+    public NewsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_card_item, null);
+        return new ViewHolder(v);
+    }
+
+    @Override
+    public int getItemCount() {
+        return mNews.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView titleTextView;
+        private CardView cardView;
+
+        ViewHolder(View itemView) {
+            super(itemView);
+            titleTextView = itemView.findViewById(R.id.title_card);
+            cardView = itemView.findViewById(R.id.card_view);
+        }
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        // Find the current news that was clicked on
+        final News currentNews = mNews.get(position);
+
+        holder.titleTextView.setText(currentNews.getTitle());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Convert the String URL into a URI object (to pass into the Intent constructor)
+                Uri newsUri = Uri.parse(currentNews.getUrl());
+
+                // Create a new intent to view the news URI
+                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, newsUri);
+
+                // Send the intent to launch a new activity
+                mContext.startActivity(websiteIntent);
+            }
+        });
+    }
+}
