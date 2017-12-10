@@ -16,16 +16,22 @@ import com.example.android.newsfeed.R;
 import java.util.List;
 
 /**
- * {@link NewsAdapter} is a {@link NewsAdapter} that can provide a layout for each
+ * A {@link NewsAdapter} can provide a card item layout for each news in the data source
+ * ( a list of {@link News} objects).
  */
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     private Context mContext;
-    private List<News> mNews;
+    private List<News> mNewsList;
 
-    public NewsAdapter(Context context, List<News> news) {
+    /**
+     * Constructs a new {@link NewsAdapter}
+     * @param context of the app
+     * @param newsList is the list of news, which is the data source of the adapter
+     */
+    public NewsAdapter(Context context, List<News> newsList) {
         mContext = context;
-        mNews = news;
+        mNewsList = newsList;
     }
 
     @Override
@@ -36,7 +42,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mNews.size();
+        return mNewsList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -53,7 +59,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         // Find the current news that was clicked on
-        final News currentNews = mNews.get(position);
+        final News currentNews = mNewsList.get(position);
 
         holder.titleTextView.setText(currentNews.getTitle());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -69,5 +75,23 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 mContext.startActivity(websiteIntent);
             }
         });
+    }
+
+    /**
+     *  Clear all data (a list of {@link News} objects)
+     */
+    public void clearAll() {
+        mNewsList.clear();
+        notifyDataSetChanged();
+    }
+
+    /**
+     * Add  a list of {@link News}
+     * @param newsList is the list of news, which is the data source of the adapter
+     */
+    public void addAll(List<News> newsList) {
+        mNewsList.clear();
+        mNewsList.addAll(newsList);
+        notifyDataSetChanged();
     }
 }

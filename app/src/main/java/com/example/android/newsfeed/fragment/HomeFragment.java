@@ -1,6 +1,7 @@
 package com.example.android.newsfeed.fragment;
 
 import android.app.Fragment;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import com.example.android.newsfeed.News;
 import com.example.android.newsfeed.R;
 import com.example.android.newsfeed.adapter.NewsAdapter;
+import com.example.android.newsfeed.utils.QueryUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,15 @@ import java.util.List;
  */
 
 public class HomeFragment extends Fragment {
+
+    public static final String LOG_TAG = HomeFragment.class.getName();
+
+    /** URL for news data from the Guardian data set */
+    private static final String NEWS_REQUEST_URL =
+            "http://content.guardianapis.com/search?q=debates&api-key=test";
+
+    /** Adapter for the list of news */
+    private  NewsAdapter mAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,19 +44,42 @@ public class HomeFragment extends Fragment {
         // Set the layoutManager on the {@link RecyclerView}
         recyclerView.setLayoutManager(layoutManager);
 
-        // Create a list of news
-        List<News> news = new ArrayList<>();
+        // Create a new adapter that takes an empty list of news as input
+        mAdapter = new NewsAdapter(getActivity(), new ArrayList<News>());
 
-        // Add news to the list of news
-        news.add(new News("Paul Keating says assisted dying 'unacceptable' as " +
-                "Victoria debates law", "https://www.theguardian.com/society/2017/oct" +
-                "/19/paul-keating-says-assisted-dying-unacceptable-as-victoria-debates-law"));
-        news.add(new News("Universities are part of the solution to dysfunctional " +
-                "Brexit debates", "https://www.theguardian.com/science/occams-corner" +
-                "/2017/nov/06/universities-are-part-of-the-solution-to-dysfunctional-brexit-debates"));
+        // Set the adapter on the {@link recyclerView}
+        recyclerView.setAdapter(mAdapter);
 
-        // Make the recyclerView use the NewsAdapter
-        recyclerView.setAdapter(new NewsAdapter(getActivity(), news));
+        // Start the AsyncTask to fetch the news data
+        NewsAsyncTask task = new NewsAsyncTask();
+        task.execute(NEWS_REQUEST_URL);
+
         return rootView;
+    }
+
+    private class NewsAsyncTask extends AsyncTask<String, Void, List<News>> {
+
+        @Override
+        protected List<News> doInBackground(String... urls) {
+            // Don't perform the request if there are no URLs, or the first URL is null
+            if (urls.length < 1 || urls[0] == null) {
+                return null;
+            }
+
+            List<News> result = QueryUtils.fetchNewsData(urls[0]);
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(List<News> data) {
+            // Clear the adapter of previous news data
+            mAdapter.clearAll();
+
+            // If there is a valid list of {@link News}, then add them to the adapter's
+            // data set. This will trigger the recyclerView to update.
+            if (data != null && !data.isEmpty()) {
+                mAdapter.addAll(data);
+            }
+        }
     }
 }
