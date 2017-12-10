@@ -135,7 +135,7 @@ public class QueryUtils {
      * Return a list of {@link News} objects that has been built up from
      * parsing the given JSON response.
      */
-    public static List<News> extractFeatureFromJSON(String newsJSON) {
+    private static List<News> extractFeatureFromJSON(String newsJSON) {
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(newsJSON)) {
             return null;
