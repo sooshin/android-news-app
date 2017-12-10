@@ -1,7 +1,8 @@
 package com.example.android.newsfeed.fragment;
 
 import android.app.Fragment;
-import android.os.AsyncTask;
+import android.app.LoaderManager;
+import android.content.Loader;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,9 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.newsfeed.News;
+import com.example.android.newsfeed.NewsLoader;
 import com.example.android.newsfeed.R;
 import com.example.android.newsfeed.adapter.NewsAdapter;
-import com.example.android.newsfeed.utils.QueryUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +22,17 @@ import java.util.List;
  * Created by sj on 12/7/2017.
  */
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment
+        implements LoaderManager.LoaderCallbacks<List<News>> {
 
     public static final String LOG_TAG = HomeFragment.class.getName();
 
     /** URL for news data from the Guardian data set */
     private static final String NEWS_REQUEST_URL =
             "http://content.guardianapis.com/search?q=debates&api-key=test";
+
+    /** Constant value for the earthquake loader ID. */
+    private static final int NEWS_LOADER_ID = 1;
 
     /** Adapter for the list of news */
     private  NewsAdapter mAdapter;
@@ -50,36 +55,36 @@ public class HomeFragment extends Fragment {
         // Set the adapter on the {@link recyclerView}
         recyclerView.setAdapter(mAdapter);
 
-        // Start the AsyncTask to fetch the news data
-        NewsAsyncTask task = new NewsAsyncTask();
-        task.execute(NEWS_REQUEST_URL);
+        // Get a reference to the LoaderManager, in order to interact with loaders.
+        LoaderManager loaderManager = getLoaderManager();
+
+        // Initialize the loader.
+        loaderManager.initLoader(NEWS_LOADER_ID, null, this);
 
         return rootView;
     }
 
-    private class NewsAsyncTask extends AsyncTask<String, Void, List<News>> {
+    @Override
+    public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
+        // Create a new loader for the given URL
+        return new NewsLoader(getActivity(), NEWS_REQUEST_URL);
+    }
 
-        @Override
-        protected List<News> doInBackground(String... urls) {
-            // Don't perform the request if there are no URLs, or the first URL is null
-            if (urls.length < 1 || urls[0] == null) {
-                return null;
-            }
+    @Override
+    public void onLoadFinished(Loader<List<News>> loader, List<News> newsData) {
+        // Clear the adapter of previous news data
+        mAdapter.clearAll();
 
-            List<News> result = QueryUtils.fetchNewsData(urls[0]);
-            return result;
+        // If there is a valid list of {@link News}, then add them to the adapter's
+        // data set. This will trigger the recyclerView to update.
+        if (newsData != null && !newsData.isEmpty()) {
+            mAdapter.addAll(newsData);
         }
+    }
 
-        @Override
-        protected void onPostExecute(List<News> data) {
-            // Clear the adapter of previous news data
-            mAdapter.clearAll();
-
-            // If there is a valid list of {@link News}, then add them to the adapter's
-            // data set. This will trigger the recyclerView to update.
-            if (data != null && !data.isEmpty()) {
-                mAdapter.addAll(data);
-            }
-        }
+    @Override
+    public void onLoaderReset(Loader<List<News>> loader) {
+        // Loader reset, so we can clear out our existing data.
+        mAdapter.clearAll();
     }
 }
