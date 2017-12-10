@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment
         // Get a reference to the LoaderManager, in order to interact with loaders.
         LoaderManager loaderManager = getLoaderManager();
 
-        // Initialize the loader.
+        // Initialize the loader with the NEWS_LOADER_ID
         loaderManager.initLoader(NEWS_LOADER_ID, null, this);
 
         return rootView;
