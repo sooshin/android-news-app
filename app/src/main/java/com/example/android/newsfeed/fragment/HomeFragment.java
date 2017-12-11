@@ -41,6 +41,9 @@ public class HomeFragment extends Fragment
     /** TextView that is displayed when the recycler view is empty */
     private TextView mEmptyStateTextView;
 
+    /** Loading indicator that is displayed before the first load is completed */
+    private View mLoadingIndicator;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
@@ -53,6 +56,9 @@ public class HomeFragment extends Fragment
 
         // Set the layoutManager on the {@link RecyclerView}
         mRecyclerView.setLayoutManager(layoutManager);
+
+        // Find the loading indicator from the layout
+        mLoadingIndicator = rootView.findViewById(R.id.loading_indicator);
 
         // Find the empty view from the layout and set it on the new recycler view
         mEmptyStateTextView = rootView.findViewById(R.id.empty_view);
@@ -81,6 +87,9 @@ public class HomeFragment extends Fragment
 
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> newsData) {
+        // Hide loading indicator because the data has been loaded
+        mLoadingIndicator.setVisibility(View.GONE);
+
         // Set empty state text to display "No news found."
         mEmptyStateTextView.setText(R.string.no_news);
 
