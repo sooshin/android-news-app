@@ -90,7 +90,7 @@ public class HomeFragment extends Fragment
         // If there is a valid list of {@link News}, then add them to the adapter's
         // data set. This will trigger the recyclerView to update.
         if (newsData != null && !newsData.isEmpty()) {
-            //mAdapter.addAll(newsData);
+            mAdapter.addAll(newsData);
         }
     }
 
