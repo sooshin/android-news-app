@@ -5,12 +5,12 @@ import android.app.LoaderManager;
 import android.content.Loader;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.android.newsfeed.EmptyRecyclerView;
 import com.example.android.newsfeed.News;
 import com.example.android.newsfeed.NewsLoader;
 import com.example.android.newsfeed.R;
@@ -38,23 +38,33 @@ public class HomeFragment extends Fragment
     /** Adapter for the list of news */
     private  NewsAdapter mAdapter;
 
+    /** Replaced RecyclerView with EmptyRecyclerView */
+    private EmptyRecyclerView mRecyclerView;
+
+    /** TextView that is displayed when the recycler view is empty */
+    private TextView mEmptyStateTextView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Find a reference to the {@link RecyclerView} in the layout
-        RecyclerView recyclerView = rootView.findViewById(R.id.recycler_view);
+        mRecyclerView = rootView.findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(true);
 
         // Set the layoutManager on the {@link RecyclerView}
-        recyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        // Find the empty view from the layout and set it on the new recycler view
+        mEmptyStateTextView = rootView.findViewById(R.id.empty_view);
+        mRecyclerView.setEmptyView(mEmptyStateTextView);
 
         // Create a new adapter that takes an empty list of news as input
         mAdapter = new NewsAdapter(getActivity(), new ArrayList<News>());
 
         // Set the adapter on the {@link recyclerView}
-        recyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
 
         // Get a reference to the LoaderManager, in order to interact with loaders.
         LoaderManager loaderManager = getLoaderManager();
@@ -73,13 +83,16 @@ public class HomeFragment extends Fragment
 
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> newsData) {
+        // Set empty state text to display "No news found."
+        mEmptyStateTextView.setText(R.string.no_news);
+
         // Clear the adapter of previous news data
         mAdapter.clearAll();
 
         // If there is a valid list of {@link News}, then add them to the adapter's
         // data set. This will trigger the recyclerView to update.
         if (newsData != null && !newsData.isEmpty()) {
-            mAdapter.addAll(newsData);
+            //mAdapter.addAll(newsData);
         }
     }
 

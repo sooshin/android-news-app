@@ -7,4 +7,8 @@
     <string name="action_settings">Settings</string>
 
     <string name="ic_title_home">Home</string>
+
+    <!-- Text to display in the list when there are no news [CHAR LIMIT=NONE] -->
+    <string name="no_news">No news found.</string>
+
 </resources>

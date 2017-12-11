@@ -3,16 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
+    <!-- Replaced android.support.v7.widget.RecyclerView with the new EmptyRecyclerView -->
+    <com.example.android.newsfeed.EmptyRecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <!-- Empty view is only visible when the list has no items. -->
     <TextView
         android:id="@+id/empty_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textAppearance="?android:textAppearanceMedium"/>
+        android:textAppearance="?android:textAppearanceMedium" />
 
 </RelativeLayout>
