@@ -94,7 +94,7 @@ public class HomeFragment extends Fragment
             mLoadingIndicator.setVisibility(View.GONE);
 
             // Update empty state with no connection error message
-            mEmptyStateTextView.setText("No internet connection.");
+            mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
         return rootView;
     }
