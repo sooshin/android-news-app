@@ -38,6 +38,8 @@ public class QueryUtils {
      * Query the Guardian data set and return a list of {@link News} objects.
      */
     public static List<News> fetchNewsData(String requestUrl) {
+        Log.i(LOG_TAG, "TEST: fetchEarthquakeData() is called ...");
+
         // Create URL object
         URL url = createUrl(requestUrl);
 

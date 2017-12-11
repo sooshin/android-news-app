@@ -6,6 +6,7 @@ import android.content.Loader;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,8 @@ public class HomeFragment extends Fragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.i(LOG_TAG, "TEST: HomeFragment onCreateView() called");
+
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Find a reference to the {@link RecyclerView} in the layout
@@ -58,6 +61,8 @@ public class HomeFragment extends Fragment
         // Get a reference to the LoaderManager, in order to interact with loaders.
         LoaderManager loaderManager = getLoaderManager();
 
+        Log.i(LOG_TAG, "TEST: calling initLoader() ... ");
+
         // Initialize the loader with the NEWS_LOADER_ID
         loaderManager.initLoader(NEWS_LOADER_ID, null, this);
 
@@ -66,12 +71,16 @@ public class HomeFragment extends Fragment
 
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
+        Log.i(LOG_TAG, "TEST: onCreateLoader() called ...");
+
         // Create a new loader for the given URL
         return new NewsLoader(getActivity(), NEWS_REQUEST_URL);
     }
 
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> newsData) {
+        Log.i(LOG_TAG, "TEST: onLoadFinished() called ...");
+
         // Clear the adapter of previous news data
         mAdapter.clearAll();
 
@@ -84,6 +93,8 @@ public class HomeFragment extends Fragment
 
     @Override
     public void onLoaderReset(Loader<List<News>> loader) {
+        Log.i(LOG_TAG, "TEST; onLoaderReset() called ...");
+
         // Loader reset, so we can clear out our existing data.
         mAdapter.clearAll();
     }
