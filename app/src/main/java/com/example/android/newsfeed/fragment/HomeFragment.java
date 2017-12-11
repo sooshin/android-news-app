@@ -2,7 +2,10 @@ package com.example.android.newsfeed.fragment;
 
 import android.app.Fragment;
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.Loader;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
@@ -70,12 +73,29 @@ public class HomeFragment extends Fragment
         // Set the adapter on the {@link recyclerView}
         mRecyclerView.setAdapter(mAdapter);
 
-        // Get a reference to the LoaderManager, in order to interact with loaders.
-        LoaderManager loaderManager = getLoaderManager();
+        // Get a reference to the ConnectivityManager to check state of network connectivity
+        ConnectivityManager connectivityManager = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        // Initialize the loader with the NEWS_LOADER_ID
-        loaderManager.initLoader(NEWS_LOADER_ID, null, this);
+        // Get details on the currently active default data network
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
+        boolean isConnected = networkInfo != null &&
+                networkInfo.isConnected();
+        if (isConnected) {
+            // Get a reference to the LoaderManager, in order to interact with loaders.
+            LoaderManager loaderManager = getLoaderManager();
+
+            // Initialize the loader with the NEWS_LOADER_ID
+            loaderManager.initLoader(NEWS_LOADER_ID, null, this);
+        } else {
+            // Otherwise, display error
+            // First, hide loading indicator so error message will be visible
+            mLoadingIndicator.setVisibility(View.GONE);
+
+            // Update empty state with no connection error message
+            mEmptyStateTextView.setText("No internet connection.");
+        }
         return rootView;
     }
 
