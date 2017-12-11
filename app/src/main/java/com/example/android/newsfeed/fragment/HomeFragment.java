@@ -38,9 +38,6 @@ public class HomeFragment extends Fragment
     /** Adapter for the list of news */
     private  NewsAdapter mAdapter;
 
-    /** Replaced RecyclerView with EmptyRecyclerView */
-    private EmptyRecyclerView mRecyclerView;
-
     /** TextView that is displayed when the recycler view is empty */
     private TextView mEmptyStateTextView;
 
@@ -49,7 +46,8 @@ public class HomeFragment extends Fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Find a reference to the {@link RecyclerView} in the layout
-        mRecyclerView = rootView.findViewById(R.id.recycler_view);
+        // Replaced RecyclerView with EmptyRecyclerView
+        EmptyRecyclerView mRecyclerView = rootView.findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setHasFixedSize(true);
 
