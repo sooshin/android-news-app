@@ -73,29 +73,9 @@ public class HomeFragment extends Fragment
         // Set the adapter on the {@link recyclerView}
         mRecyclerView.setAdapter(mAdapter);
 
-        // Get a reference to the ConnectivityManager to check state of network connectivity
-        ConnectivityManager connectivityManager = (ConnectivityManager)
-                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        // Check for network connectivity
+        checkNetworkConnection();
 
-        // Get details on the currently active default data network
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-
-        boolean isConnected = networkInfo != null &&
-                networkInfo.isConnected();
-        if (isConnected) {
-            // Get a reference to the LoaderManager, in order to interact with loaders.
-            LoaderManager loaderManager = getLoaderManager();
-
-            // Initialize the loader with the NEWS_LOADER_ID
-            loaderManager.initLoader(NEWS_LOADER_ID, null, this);
-        } else {
-            // Otherwise, display error
-            // First, hide loading indicator so error message will be visible
-            mLoadingIndicator.setVisibility(View.GONE);
-
-            // Update empty state with no connection error message
-            mEmptyStateTextView.setText(R.string.no_internet_connection);
-        }
         return rootView;
     }
 
@@ -127,5 +107,36 @@ public class HomeFragment extends Fragment
     public void onLoaderReset(Loader<List<News>> loader) {
         // Loader reset, so we can clear out our existing data.
         mAdapter.clearAll();
+    }
+
+    /**
+     * Check for network connectivity. If there is internet connectivity, initialize the loader as
+     * usual. Otherwise, hide loading indicator and set empty state TextView to display
+     * "No internet connection."
+     */
+    private void checkNetworkConnection() {
+        // Get a reference to the ConnectivityManager to check state of network connectivity
+        ConnectivityManager connectivityManager = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Get details on the currently active default data network
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        boolean isConnected = networkInfo != null &&
+                networkInfo.isConnected();
+        if (isConnected) {
+            // Get a reference to the LoaderManager, in order to interact with loaders.
+            LoaderManager loaderManager = getLoaderManager();
+
+            // Initialize the loader with the NEWS_LOADER_ID
+            loaderManager.initLoader(NEWS_LOADER_ID, null, this);
+        } else {
+            // Otherwise, display error
+            // First, hide loading indicator so error message will be visible
+            mLoadingIndicator.setVisibility(View.GONE);
+
+            // Update empty state with no connection error message
+            mEmptyStateTextView.setText(R.string.no_internet_connection);
+        }
     }
 }
