@@ -13,6 +13,9 @@ import android.widget.TextView;
 import com.example.android.newsfeed.News;
 import com.example.android.newsfeed.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -67,7 +70,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         holder.titleTextView.setText(currentNews.getTitle());
         holder.sectionTextView.setText(currentNews.getSection());
-        holder.dateTextView.setText(currentNews.getDate());
+
+        holder.dateTextView.setText(formatDate(currentNews.getDate()));
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,5 +103,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         mNewsList.clear();
         mNewsList.addAll(newsList);
         notifyDataSetChanged();
+    }
+
+    private String formatDate(String dateStrUTC) {
+        SimpleDateFormat simpleDateFormat =
+                new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss'Z'");
+        Date dateObject = null;
+        try {
+            dateObject = simpleDateFormat.parse(dateStrUTC);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        simpleDateFormat = new SimpleDateFormat("h:mm a MMM d, yyyy ");
+        return simpleDateFormat.format(dateObject);
     }
 }
