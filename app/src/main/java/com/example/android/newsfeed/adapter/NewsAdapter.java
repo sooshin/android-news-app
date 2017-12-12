@@ -48,12 +48,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView titleTextView;
         private TextView sectionTextView;
+        private TextView dateTextView;
         private CardView cardView;
 
         ViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.title_card);
             sectionTextView = itemView.findViewById(R.id.section_card);
+            dateTextView = itemView.findViewById(R.id.date_card);
             cardView = itemView.findViewById(R.id.card_view);
         }
     }
@@ -65,6 +67,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         holder.titleTextView.setText(currentNews.getTitle());
         holder.sectionTextView.setText(currentNews.getSection());
+        holder.dateTextView.setText(currentNews.getDate());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -12,6 +12,9 @@ public class News {
     /** Section name of the news*/
     private String mSection;
 
+    /** Web publication date of the news */
+    private String mDate;
+
     /** Website URL of the news */
     private String mUrl;
 
@@ -20,11 +23,13 @@ public class News {
      *
      * @param title is the title of the news
      * @param section is the section name of the news
+     * @param date is the web publication date of the news
      * @param url is the website URL to find more details about the news
      */
-    public News(String title, String section, String url) {
+    public News(String title, String section, String date, String url) {
         mTitle = title;
         mSection = section;
+        mDate = date;
         mUrl = url;
     }
 
@@ -37,10 +42,16 @@ public class News {
 
     /**
      * Returns the section name of the news.
-     * @return
      */
     public String getSection() {
         return mSection;
+    }
+
+    /**
+     * Returns the web publication date of the news.
+     */
+    public String getDate() {
+        return mDate;
     }
 
     /**

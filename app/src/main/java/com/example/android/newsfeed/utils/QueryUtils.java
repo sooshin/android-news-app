@@ -158,10 +158,11 @@ public class QueryUtils {
                 JSONObject currentNews = resultsArray.getJSONObject(i);
                 String webTitle = currentNews.getString("webTitle");
                 String sectionName = currentNews.getString("sectionName");
+                String webPublicationDate = currentNews.getString("webPublicationDate");
                 String webUrl = currentNews.getString("webUrl");
 
                 // Create a new {@link News} object with the title and url from the JSON response.
-                News news = new News(webTitle, sectionName, webUrl);
+                News news = new News(webTitle, sectionName, webPublicationDate, webUrl);
 
                 // Add the new {@link News} to list of newsList.
                 newsList.add(news);
