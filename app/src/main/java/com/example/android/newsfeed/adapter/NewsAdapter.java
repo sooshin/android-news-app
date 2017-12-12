@@ -71,6 +71,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.titleTextView.setText(currentNews.getTitle());
         holder.sectionTextView.setText(currentNews.getSection());
 
+        // Format the date string and set the formatted date string on the textView
         holder.dateTextView.setText(formatDate(currentNews.getDate()));
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,15 +106,25 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
-    private String formatDate(String dateStrUTC) {
+    /**
+     * Convert date and time in UTC into a more readable representation
+     *
+     * @param dateString is the web publication date of the news
+     * @return the formatted date string (i.e "2:15 AM Jan 1, 2000") from a String dateString
+     */
+    private String formatDate(String dateString) {
+        // Parse the dateString into a Date object
         SimpleDateFormat simpleDateFormat =
                 new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss'Z'");
         Date dateObject = null;
         try {
-            dateObject = simpleDateFormat.parse(dateStrUTC);
+            dateObject = simpleDateFormat.parse(dateString);
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        // Initialize a SimpleDateFormat instance and configure it to provide a more readable
+        // representation according to the given format.
         simpleDateFormat = new SimpleDateFormat("h:mm a MMM d, yyyy ");
         return simpleDateFormat.format(dateObject);
     }
