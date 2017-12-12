@@ -38,6 +38,14 @@
                 tools:text="section"/>
 
             <TextView
+                android:id="@+id/author_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                tools:text="author"/>
+
+            <TextView
                 android:id="@+id/date_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -161,8 +161,17 @@ public class QueryUtils {
                 String webPublicationDate = currentNews.getString("webPublicationDate");
                 String webUrl = currentNews.getString("webUrl");
 
+                String author = null;
+                if (currentNews.has("tags")) {
+                    JSONArray tagsArray = currentNews.getJSONArray("tags");
+                    if (tagsArray.length() != 0) {
+                        JSONObject firstTagsItem = tagsArray.getJSONObject(0);
+                        author = firstTagsItem.getString("webTitle");
+                    }
+                }
+
                 // Create a new {@link News} object with the title and url from the JSON response.
-                News news = new News(webTitle, sectionName, webPublicationDate, webUrl);
+                News news = new News(webTitle, sectionName, author, webPublicationDate, webUrl);
 
                 // Add the new {@link News} to list of newsList.
                 newsList.add(news);

@@ -32,8 +32,11 @@ public class HomeFragment extends Fragment
     public static final String LOG_TAG = HomeFragment.class.getName();
 
     /** URL for news data from the Guardian data set */
-    private static final String NEWS_REQUEST_URL =
+    private static final String NEWS_REQUEST_URL_1 =
             "http://content.guardianapis.com/search?q=debates&api-key=test";
+
+    private static final String NEWS_REQUEST_URL =
+            "https://content.guardianapis.com/search?q=debate&show-fields=trailText&show-tags=contributor&api-key=test";
 
     /** Constant value for the earthquake loader ID. */
     private static final int NEWS_LOADER_ID = 1;

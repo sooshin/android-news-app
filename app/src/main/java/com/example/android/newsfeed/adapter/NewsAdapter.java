@@ -51,6 +51,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView titleTextView;
         private TextView sectionTextView;
+        private TextView authorTextView;
         private TextView dateTextView;
         private CardView cardView;
 
@@ -58,6 +59,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.title_card);
             sectionTextView = itemView.findViewById(R.id.section_card);
+            authorTextView = itemView.findViewById(R.id.author_card);
             dateTextView = itemView.findViewById(R.id.date_card);
             cardView = itemView.findViewById(R.id.card_view);
         }
@@ -70,6 +72,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         holder.titleTextView.setText(currentNews.getTitle());
         holder.sectionTextView.setText(currentNews.getSection());
+        holder.authorTextView.setText(currentNews.getAuthor());
 
         // Format the date string and set the formatted date string on the textView
         holder.dateTextView.setText(formatDate(currentNews.getDate()));
