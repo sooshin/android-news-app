@@ -171,15 +171,17 @@ public class QueryUtils {
                 }
 
                 String thumbnail = null;
+                String trailText = null;
                 if (currentNews.has("fields")) {
                     JSONObject fieldsArray = currentNews.getJSONObject("fields");
                     if (fieldsArray.length() != 0) {
                         thumbnail = fieldsArray.getString("thumbnail");
+                        trailText = fieldsArray.getString("trailText");
                     }
                 }
 
                 // Create a new {@link News} object with the title and url from the JSON response.
-                News news = new News(webTitle, sectionName, author, webPublicationDate, webUrl, thumbnail);
+                News news = new News(webTitle, sectionName, author, webPublicationDate, webUrl, thumbnail, trailText);
 
                 // Add the new {@link News} to list of newsList.
                 newsList.add(news);

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         private TextView authorTextView;
         private TextView dateTextView;
         private ImageView thumbnailImageView;
+        private TextView trailTextView;
         private CardView cardView;
 
         ViewHolder(View itemView) {
@@ -65,6 +67,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             authorTextView = itemView.findViewById(R.id.author_card);
             dateTextView = itemView.findViewById(R.id.date_card);
             thumbnailImageView = itemView.findViewById(R.id.thumbnail_image_card);
+            trailTextView = itemView.findViewById(R.id.trail_text_card);
             cardView = itemView.findViewById(R.id.card_view);
         }
     }
@@ -80,6 +83,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         // Format the date string and set the formatted date string on the textView
         holder.dateTextView.setText(formatDate(currentNews.getDate()));
+
+        String trailTextHTML = currentNews.getTrailTextHTML();
+        holder.trailTextView.setText(Html.fromHtml(Html.fromHtml(trailTextHTML).toString()));
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override

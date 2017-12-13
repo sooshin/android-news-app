@@ -24,6 +24,8 @@ public class News {
     /** Thumbnail of the article */
     private String mThumbnail;
 
+    private String mTrailTextHTML;
+
     /**
      * Constructs a new {@link News} object.
      *
@@ -33,13 +35,14 @@ public class News {
      * @param date is the web publication date of the news
      * @param url is the website URL to find more details about the news
      */
-    public News(String title, String section, String author, String date, String url, String thumbnail) {
+    public News(String title, String section, String author, String date, String url, String thumbnail, String trailText) {
         mTitle = title;
         mSection = section;
         mAuthor = author;
         mDate = date;
         mUrl = url;
         mThumbnail = thumbnail;
+        mTrailTextHTML = trailText;
     }
 
     /**
@@ -83,4 +86,7 @@ public class News {
         return mThumbnail;
     }
 
+    public String getTrailTextHTML() {
+        return mTrailTextHTML;
+    }
 }
