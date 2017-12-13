@@ -61,6 +61,12 @@
                 android:layout_marginRight="16dp"
                 tools:text="thumbnail" />
 
+            <ImageView
+                android:id="@+id/thumbnail_image_card"
+                android:layout_width="180dp"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"/>
+
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
