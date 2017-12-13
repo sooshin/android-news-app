@@ -48,12 +48,16 @@
             <TextView
                 android:id="@+id/trail_text_card"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="120dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/section_card"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_toStartOf="@+id/thumbnail_image_card"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-light"
+                android:maxLines="6"
+                android:textSize="16sp"
                 tools:text="trailText" />
 
             <TextView
