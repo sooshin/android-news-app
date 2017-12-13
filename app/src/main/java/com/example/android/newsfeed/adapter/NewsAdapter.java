@@ -84,9 +84,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         // Format the date string and set the formatted date string on the textView
         holder.dateTextView.setText(formatDate(currentNews.getDate()));
 
-        String trailTextHTML = currentNews.getTrailTextHTML();
+        // Get string of the trailTextHTML and convert Html text to plain text
+        // and set the plain text on the textView
+        String trailTextHTML = currentNews.getTrailTextHtml();
         holder.trailTextView.setText(Html.fromHtml(Html.fromHtml(trailTextHTML).toString()));
 
+        // Set an OnClickListener to open a website with more information about the selected article
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

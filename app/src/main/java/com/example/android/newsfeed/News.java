@@ -6,34 +6,37 @@ package com.example.android.newsfeed;
 
 public class News {
 
-    /** Title of the news */
+    /** Title of the article */
     private String mTitle;
 
-    /** Section name of the news*/
+    /** Section name of the article*/
     private String mSection;
 
     /** Author name in the article */
     private String mAuthor;
 
-    /** Web publication date of the news */
+    /** Web publication date of the article */
     private String mDate;
 
-    /** Website URL of the news */
+    /** Website URL of the article */
     private String mUrl;
 
     /** Thumbnail of the article */
     private String mThumbnail;
 
-    private String mTrailTextHTML;
+    /** TrailText of the article with string type Html */
+    private String mTrailTextHtml;
 
     /**
      * Constructs a new {@link News} object.
      *
-     * @param title is the title of the news
-     * @param section is the section name of the news
+     * @param title is the title of the article
+     * @param section is the section name of the article
      * @param author is author name in article
-     * @param date is the web publication date of the news
-     * @param url is the website URL to find more details about the news
+     * @param date is the web publication date of the article
+     * @param url is the website URL to find more details about the article
+     * @param thumbnail is the thumbnail of the article
+     * @param trailText is trail text of the article with string type Html
      */
     public News(String title, String section, String author, String date, String url, String thumbnail, String trailText) {
         mTitle = title;
@@ -42,18 +45,18 @@ public class News {
         mDate = date;
         mUrl = url;
         mThumbnail = thumbnail;
-        mTrailTextHTML = trailText;
+        mTrailTextHtml = trailText;
     }
 
     /**
-     * Returns the title of the news.
+     * Returns the title of the article
      */
     public String getTitle() {
         return mTitle;
     }
 
     /**
-     * Returns the section name of the news.
+     * Returns the section name of the article.
      */
     public String getSection() {
         return mSection;
@@ -66,14 +69,14 @@ public class News {
         return mAuthor;
     }
     /**
-     * Returns the web publication date of the news.
+     * Returns the web publication date of the article.
      */
     public String getDate() {
         return mDate;
     }
 
     /**
-     * Returns the website URL to find more information about the earthquake.
+     * Returns the website URL to find more information about the news.
      */
     public String getUrl() {
         return mUrl;
@@ -86,7 +89,10 @@ public class News {
         return mThumbnail;
     }
 
-    public String getTrailTextHTML() {
-        return mTrailTextHTML;
+    /**
+     * Returns the TrailText of the article with string type Html
+     */
+    public String getTrailTextHtml() {
+        return mTrailTextHtml;
     }
 }
