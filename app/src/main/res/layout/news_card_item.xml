@@ -57,7 +57,8 @@
                 android:id="@+id/thumbnail_image_card"
                 android:layout_width="180dp"
                 android:layout_height="160dp"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_des"/>
 
         </LinearLayout>
 

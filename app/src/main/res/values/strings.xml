@@ -14,4 +14,7 @@
     <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
     <string name="no_internet_connection">No internet connection.</string>
 
+    <!-- Content description of the image -->
+    <string name="image_des">Image</string>
+
 </resources>
