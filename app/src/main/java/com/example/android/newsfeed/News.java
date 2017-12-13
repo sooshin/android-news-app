@@ -21,6 +21,9 @@ public class News {
     /** Website URL of the news */
     private String mUrl;
 
+    /** Thumbnail of the article */
+    private String mThumbnail;
+
     /**
      * Constructs a new {@link News} object.
      *
@@ -30,12 +33,13 @@ public class News {
      * @param date is the web publication date of the news
      * @param url is the website URL to find more details about the news
      */
-    public News(String title, String section, String author, String date, String url) {
+    public News(String title, String section, String author, String date, String url, String thumbnail) {
         mTitle = title;
         mSection = section;
         mAuthor = author;
         mDate = date;
         mUrl = url;
+        mThumbnail = thumbnail;
     }
 
     /**
@@ -70,6 +74,13 @@ public class News {
      */
     public String getUrl() {
         return mUrl;
+    }
+
+    /**
+     * Returns the thumbnail of the article
+     */
+    public String getThumbnail() {
+        return mThumbnail;
     }
 
 }

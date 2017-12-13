@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment
             "http://content.guardianapis.com/search?q=debates&api-key=test";
 
     private static final String NEWS_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=debate&show-fields=trailText&show-tags=contributor&api-key=test";
+            "https://content.guardianapis.com/search?q=debate&show-fields=thumbnail&show-tags=contributor&api-key=test";
 
     /** Constant value for the earthquake loader ID. */
     private static final int NEWS_LOADER_ID = 1;
