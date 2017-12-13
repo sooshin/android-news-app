@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // Set the default fragment when starting the app
+        onNavigationItemSelected(navigationView.getMenu().getItem(0).setChecked(true));
     }
 
     @Override
