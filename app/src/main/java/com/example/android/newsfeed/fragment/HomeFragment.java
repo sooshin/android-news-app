@@ -7,11 +7,14 @@ import android.content.Loader;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.newsfeed.EmptyRecyclerView;
 import com.example.android.newsfeed.News;
@@ -50,6 +53,11 @@ public class HomeFragment extends Fragment
     /** Loading indicator that is displayed before the first load is completed */
     private View mLoadingIndicator;
 
+    /** The {@link android.support.v4.widget.SwipeRefreshLayout} that detects swipe gestures and
+      * triggers callbacks in the app.
+      */
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
@@ -62,6 +70,25 @@ public class HomeFragment extends Fragment
 
         // Set the layoutManager on the {@link RecyclerView}
         mRecyclerView.setLayoutManager(layoutManager);
+
+        // Find the SwipeRefreshLayout
+        mSwipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
+        // Set the color scheme of the SwipeRefreshLayout
+        mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.swipe_color_1),
+                getResources().getColor(R.color.swipe_color_2),
+                getResources().getColor(R.color.swipe_color_3),
+                getResources().getColor(R.color.swipe_color_4));
+
+        // Set up OnRefreshListener that is invoked when the user performs a swipe-to-refresh gesture.
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.i(LOG_TAG, "onRefresh called from SwipeRefreshLayout");
+                // restart the loader
+                initiateRefresh();
+                Toast.makeText(getActivity(), "SwipeRefresh", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Find the loading indicator from the layout
         mLoadingIndicator = rootView.findViewById(R.id.loading_indicator);
@@ -104,6 +131,9 @@ public class HomeFragment extends Fragment
         if (newsData != null && !newsData.isEmpty()) {
             mAdapter.addAll(newsData);
         }
+
+        // Hide the swipe icon animation when the loader is done refreshing the data
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -141,5 +171,39 @@ public class HomeFragment extends Fragment
             // Update empty state with no connection error message
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
+    }
+
+    private void checkNetworkConnectionRestartLoader() {
+        // Get a reference to the ConnectivityManager to check state of network connectivity
+        ConnectivityManager connectivityManager = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Get details on the currently active default data network
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        boolean isConnected = networkInfo != null &&
+                networkInfo.isConnected();
+        if (isConnected) {
+            // Get a reference to the LoaderManager, in order to interact with loaders.
+            LoaderManager loaderManager = getLoaderManager();
+
+            // Initialize the loader with the NEWS_LOADER_ID
+            loaderManager.restartLoader(NEWS_LOADER_ID, null, this);
+
+        } else {
+            // Otherwise, display error
+            // First, hide loading indicator so error message will be visible
+            mLoadingIndicator.setVisibility(View.GONE);
+
+            // Update empty state with no connection error message
+            mEmptyStateTextView.setText(R.string.no_internet_connection);
+
+            ///////
+            mSwipeRefreshLayout.setVisibility(View.GONE);
+        }
+    }
+
+    private void initiateRefresh() {
+        checkNetworkConnectionRestartLoader();
     }
 }
