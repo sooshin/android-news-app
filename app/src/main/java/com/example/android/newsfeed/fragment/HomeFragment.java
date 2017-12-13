@@ -54,8 +54,8 @@ public class HomeFragment extends Fragment
     private View mLoadingIndicator;
 
     /** The {@link android.support.v4.widget.SwipeRefreshLayout} that detects swipe gestures and
-      * triggers callbacks in the app.
-      */
+     * triggers callbacks in the app.
+     */
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
@@ -103,8 +103,8 @@ public class HomeFragment extends Fragment
         // Set the adapter on the {@link recyclerView}
         mRecyclerView.setAdapter(mAdapter);
 
-        // Check for network connectivity
-        checkNetworkConnection();
+        // Check for network connectivity and initialize the loader
+        initializeLoader(isConnected());
 
         return rootView;
     }
@@ -143,11 +143,9 @@ public class HomeFragment extends Fragment
     }
 
     /**
-     * Check for network connectivity. If there is internet connectivity, initialize the loader as
-     * usual. Otherwise, hide loading indicator and set empty state TextView to display
-     * "No internet connection."
+     *  Check for network connectivity.
      */
-    private void checkNetworkConnection() {
+    private boolean isConnected() {
         // Get a reference to the ConnectivityManager to check state of network connectivity
         ConnectivityManager connectivityManager = (ConnectivityManager)
                 getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -155,55 +153,57 @@ public class HomeFragment extends Fragment
         // Get details on the currently active default data network
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-        boolean isConnected = networkInfo != null &&
-                networkInfo.isConnected();
+        return (networkInfo != null && networkInfo.isConnected());
+    }
+
+    /**
+     * If there is internet connectivity, initialize the loader as
+     * usual. Otherwise, hide loading indicator and set empty state TextView to display
+     * "No internet connection."
+     *
+     * @param isConnected internet connection is available or not
+     */
+    private void initializeLoader(boolean isConnected) {
         if (isConnected) {
             // Get a reference to the LoaderManager, in order to interact with loaders.
             LoaderManager loaderManager = getLoaderManager();
-
             // Initialize the loader with the NEWS_LOADER_ID
             loaderManager.initLoader(NEWS_LOADER_ID, null, this);
         } else {
             // Otherwise, display error
             // First, hide loading indicator so error message will be visible
             mLoadingIndicator.setVisibility(View.GONE);
-
             // Update empty state with no connection error message
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
     }
 
-    private void checkNetworkConnectionRestartLoader() {
-        // Get a reference to the ConnectivityManager to check state of network connectivity
-        ConnectivityManager connectivityManager = (ConnectivityManager)
-                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        // Get details on the currently active default data network
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-
-        boolean isConnected = networkInfo != null &&
-                networkInfo.isConnected();
+    /**
+     * Restart the loader if there is internet connectivity.
+     * @param isConnected internet connection is available or not
+     */
+    private void restartLoader(boolean isConnected) {
         if (isConnected) {
             // Get a reference to the LoaderManager, in order to interact with loaders.
             LoaderManager loaderManager = getLoaderManager();
-
-            // Initialize the loader with the NEWS_LOADER_ID
+            // Restart the loader with the NEWS_LOADER_ID
             loaderManager.restartLoader(NEWS_LOADER_ID, null, this);
-
         } else {
             // Otherwise, display error
             // First, hide loading indicator so error message will be visible
             mLoadingIndicator.setVisibility(View.GONE);
-
             // Update empty state with no connection error message
             mEmptyStateTextView.setText(R.string.no_internet_connection);
 
-            ///////
+            // Hide SwipeRefreshLayout
             mSwipeRefreshLayout.setVisibility(View.GONE);
         }
     }
 
+    /**
+     * When the user performs a swipe-to-refresh gesture, restart the loader.
+     */
     private void initiateRefresh() {
-        checkNetworkConnectionRestartLoader();
+        restartLoader(isConnected());
     }
 }
