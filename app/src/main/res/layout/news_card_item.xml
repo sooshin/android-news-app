@@ -42,15 +42,18 @@
                 android:layout_below="@+id/title_card"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:textColor="@color/color_section"
                 tools:text="section" />
 
             <TextView
                 android:id="@+id/trail_text_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_below="@+id/section_card"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_toStartOf="@+id/thumbnail_image_card"
                 tools:text="trailText" />
 
             <TextView
@@ -60,21 +63,23 @@
                 android:layout_below="@+id/trail_text_card"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:textColor="@color/color_author"
+                android:textStyle="italic"
                 tools:text="author" />
 
             <TextView
                 android:id="@+id/date_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_below="@id/author_card"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 tools:text="date" />
 
             <ImageView
                 android:id="@+id/thumbnail_image_card"
-                android:layout_width="160dp"
-                android:layout_height="140dp"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/title_card"
                 android:contentDescription="@string/image_des"

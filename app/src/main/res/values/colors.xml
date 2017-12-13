@@ -8,4 +8,7 @@
     <color name="swipe_color_2">#03A9F4</color>
     <color name="swipe_color_3">#FFC107</color>
     <color name="swipe_color_4">#FF5722</color>
+
+    <color name="color_section">#4CAF50</color>
+    <color name="color_author">#8E24AA</color>
 </resources>
