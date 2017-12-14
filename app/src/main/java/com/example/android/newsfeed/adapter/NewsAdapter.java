@@ -83,8 +83,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         holder.titleTextView.setText(currentNews.getTitle());
         holder.sectionTextView.setText(currentNews.getSection());
-        holder.authorTextView.setText(currentNews.getAuthor());
-
+        if (currentNews.getAuthor() == null) {
+            holder.authorTextView.setVisibility(View.GONE);
+        } else {
+            holder.authorTextView.setVisibility(View.VISIBLE);
+            holder.authorTextView.setText(currentNews.getAuthor());
+        }
         // Format the date string and set the formatted date string on the textView
         //holder.dateTextView.setText(formatDate(currentNews.getDate()));
 
