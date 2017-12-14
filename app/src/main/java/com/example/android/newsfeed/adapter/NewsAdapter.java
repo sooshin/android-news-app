@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,7 +86,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.authorTextView.setText(currentNews.getAuthor());
 
         // Format the date string and set the formatted date string on the textView
-        holder.dateTextView.setText(formatDate(currentNews.getDate()));
+        //holder.dateTextView.setText(formatDate(currentNews.getDate()));
+
+        holder.dateTextView.setText(getTimeDifference(formatDate(currentNews.getDate())));
 
         // Get string of the trailTextHTML and convert Html text to plain text
         // and set the plain text on the textView
@@ -165,5 +169,28 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         // representation according to the given format.
         simpleDateFormat = new SimpleDateFormat("h:mm a MMM d, yyyy ");
         return simpleDateFormat.format(dateObject);
+    }
+
+    private static long getDateInMillis(String dateString) {
+        SimpleDateFormat simpleDateFormat =
+                new SimpleDateFormat("h:mm a MMM d, yyyy ");
+        long dateInMillis = 0;
+        Date dateObject;
+        try {
+            dateObject = simpleDateFormat.parse(dateString);
+            dateInMillis = dateObject.getTime();
+            return dateInMillis;
+        } catch (ParseException e) {
+            Log.e("Problem parsing date", e.getMessage());
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    private CharSequence getTimeDifference(String dateString) {
+        long currentTime = System.currentTimeMillis();
+        long publicationTime = getDateInMillis(dateString);
+        return DateUtils.getRelativeTimeSpanString(publicationTime, currentTime,
+                DateUtils.SECOND_IN_MILLIS);
     }
 }
