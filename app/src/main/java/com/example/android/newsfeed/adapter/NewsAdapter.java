@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.android.newsfeed.News;
@@ -57,6 +58,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         private TextView authorTextView;
         private TextView dateTextView;
         private ImageView thumbnailImageView;
+        private ImageView shareImageView;
         private TextView trailTextView;
         private CardView cardView;
 
@@ -67,6 +69,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             authorTextView = itemView.findViewById(R.id.author_card);
             dateTextView = itemView.findViewById(R.id.date_card);
             thumbnailImageView = itemView.findViewById(R.id.thumbnail_image_card);
+            shareImageView = itemView.findViewById(R.id.share_image_card);
             trailTextView = itemView.findViewById(R.id.trail_text_card);
             cardView = itemView.findViewById(R.id.card_view);
         }
@@ -107,6 +110,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         Glide.with(mContext.getApplicationContext())
                 .load(currentNews.getThumbnail())
                 .into(holder.thumbnailImageView);
+
+        holder.shareImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "share", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
