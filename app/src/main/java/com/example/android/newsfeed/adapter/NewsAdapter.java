@@ -149,18 +149,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
 
     /**
-     * Convert date and time in UTC into a more readable representation
+     * Convert date and time in UTC (webPublicationDate) into a more readable representation
      *
-     * @param dateString is the web publication date of the news
-     * @return the formatted date string (i.e "2:15 AM Jan 1, 2000") from a String dateString
+     * @param dateStringUTC is the web publication date of the article
+     * @return the formatted date string (i.e "2:15 AM Jan 1, 2000") from a dateStringUTC
      */
-    private String formatDate(String dateString) {
+    private String formatDate(String dateStringUTC) {
         // Parse the dateString into a Date object
         SimpleDateFormat simpleDateFormat =
                 new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss'Z'");
         Date dateObject = null;
         try {
-            dateObject = simpleDateFormat.parse(dateString);
+            dateObject = simpleDateFormat.parse(dateStringUTC);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -171,13 +171,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         return simpleDateFormat.format(dateObject);
     }
 
-    private static long getDateInMillis(String dateString) {
+    private static long getDateInMillis(String formattedDate) {
         SimpleDateFormat simpleDateFormat =
                 new SimpleDateFormat("h:mm a MMM d, yyyy ");
         long dateInMillis = 0;
         Date dateObject;
         try {
-            dateObject = simpleDateFormat.parse(dateString);
+            dateObject = simpleDateFormat.parse(formattedDate);
             dateInMillis = dateObject.getTime();
             return dateInMillis;
         } catch (ParseException e) {
@@ -187,9 +187,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         return 0;
     }
 
-    private CharSequence getTimeDifference(String dateString) {
+    private CharSequence getTimeDifference(String formattedDate) {
         long currentTime = System.currentTimeMillis();
-        long publicationTime = getDateInMillis(dateString);
+        long publicationTime = getDateInMillis(formattedDate);
         return DateUtils.getRelativeTimeSpanString(publicationTime, currentTime,
                 DateUtils.SECOND_IN_MILLIS);
     }
