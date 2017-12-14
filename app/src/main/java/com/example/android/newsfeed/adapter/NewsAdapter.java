@@ -86,9 +86,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.authorTextView.setText(currentNews.getAuthor());
 
         // Format the date string and set the formatted date string on the textView
-        holder.dateTextView.setText(formatDate(currentNews.getDate()));
+        //holder.dateTextView.setText(formatDate(currentNews.getDate()));
 
-        //holder.dateTextView.setText(getTimeDifference(formatDate(currentNews.getDate())));
+        // Get time difference between the current date and web publication date and
+        // set the time difference on the textView
+        holder.dateTextView.setText(getTimeDifference(formatDate(currentNews.getDate())));
 
         // Get string of the trailTextHTML and convert Html text to plain text
         // and set the plain text on the textView
@@ -170,6 +172,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         return simpleDateFormat.format(dateObject);
     }
 
+    /**
+     * Get the formatted web publication date string in milliseconds
+     * @param formattedDate the formatted web publication date string
+     * @return the formatted web publication date in milliseconds
+     */
     private static long getDateInMillis(String formattedDate) {
         SimpleDateFormat simpleDateFormat =
                 new SimpleDateFormat("MMM d, yyyy  h:mm a");
@@ -186,6 +193,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         return 0;
     }
 
+    /**
+     * Get the time difference between the current date and web publication date
+     * @param formattedDate the formatted web publication date string
+     * @return time difference (i.e "9 hours ago")
+     */
     private CharSequence getTimeDifference(String formattedDate) {
         long currentTime = System.currentTimeMillis();
         long publicationTime = getDateInMillis(formattedDate);
