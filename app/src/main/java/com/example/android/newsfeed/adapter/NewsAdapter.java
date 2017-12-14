@@ -86,9 +86,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.authorTextView.setText(currentNews.getAuthor());
 
         // Format the date string and set the formatted date string on the textView
-        //holder.dateTextView.setText(formatDate(currentNews.getDate()));
+        holder.dateTextView.setText(formatDate(currentNews.getDate()));
 
-        holder.dateTextView.setText(getTimeDifference(formatDate(currentNews.getDate())));
+        //holder.dateTextView.setText(getTimeDifference(formatDate(currentNews.getDate())));
 
         // Get string of the trailTextHTML and convert Html text to plain text
         // and set the plain text on the textView
@@ -152,7 +152,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
      * Convert date and time in UTC (webPublicationDate) into a more readable representation
      *
      * @param dateStringUTC is the web publication date of the article
-     * @return the formatted date string (i.e "2:15 AM Jan 1, 2000") from a dateStringUTC
+     * @return the formatted date string (i.e "Jan 1, 2000  2:15 AM") from a dateStringUTC
      */
     private String formatDate(String dateStringUTC) {
         // Parse the dateString into a Date object
@@ -164,16 +164,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
         // Initialize a SimpleDateFormat instance and configure it to provide a more readable
         // representation according to the given format.
-        simpleDateFormat = new SimpleDateFormat("h:mm a MMM d, yyyy ");
+        simpleDateFormat = new SimpleDateFormat("MMM d, yyyy  h:mm a");
         return simpleDateFormat.format(dateObject);
     }
 
     private static long getDateInMillis(String formattedDate) {
         SimpleDateFormat simpleDateFormat =
-                new SimpleDateFormat("h:mm a MMM d, yyyy ");
+                new SimpleDateFormat("MMM d, yyyy  h:mm a");
         long dateInMillis = 0;
         Date dateObject;
         try {
