@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.android.newsfeed.News;
@@ -114,9 +113,17 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.shareImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "share", Toast.LENGTH_SHORT).show();
+                shareData(currentNews);
             }
         });
+    }
+
+    private void shareData(News news) {
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+                news.getTitle() + " : " + news.getUrl());
+        mContext.startActivity(sharingIntent);
     }
 
     /**
