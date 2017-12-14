@@ -11,4 +11,6 @@
 
     <color name="color_section">#4CAF50</color>
     <color name="color_author">#8E24AA</color>
+
+    <color name="color_background">#8bc34a</color>
 </resources>
