@@ -83,6 +83,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         holder.titleTextView.setText(currentNews.getTitle());
         holder.sectionTextView.setText(currentNews.getSection());
+        // If the author does not exist, hide the authorTextView
         if (currentNews.getAuthor() == null) {
             holder.authorTextView.setVisibility(View.GONE);
         } else {
@@ -115,11 +116,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 mContext.startActivity(websiteIntent);
             }
         });
-
+        // Load thumbnail with glide
         Glide.with(mContext.getApplicationContext())
                 .load(currentNews.getThumbnail())
                 .into(holder.thumbnailImageView);
-
+        // Set an OnClickListener to share the data with friends via email or  social networking
         holder.shareImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,6 +129,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         });
     }
 
+    /**
+     * Share the article with friends in social network
+     * @param news {@link News} object
+     */
     private void shareData(News news) {
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
