@@ -8,9 +8,9 @@
             android:shape="oval">
             <gradient
                 android:angle="90"
-                android:centerColor="#880d0d0f"
-                android:endColor="#885d5d5e"
-                android:startColor="#880f0f10" />
+                android:centerColor="@color/gradient_center_color"
+                android:endColor="@color/gradient_end_color"
+                android:startColor="@color/gradient_start_color" />
         </shape>
     </item>
 </layer-list>

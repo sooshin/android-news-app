@@ -13,4 +13,10 @@
     <color name="color_author">#8E24AA</color>
 
     <color name="color_background">#8bc34a</color>
+
+    <!-- Colors for gradient.xml file -->
+    <color name="gradient_center_color">#880d0d0f</color>
+    <color name="gradient_end_color">#885d5d5e</color>
+    <color name="gradient_start_color">#880f0f10</color>
+
 </resources>
