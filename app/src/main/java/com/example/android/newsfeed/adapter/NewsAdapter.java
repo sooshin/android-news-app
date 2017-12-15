@@ -22,6 +22,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * A {@link NewsAdapter} can provide a card item layout for each news in the data source
@@ -161,9 +163,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     /**
      * Convert date and time in UTC (webPublicationDate) into a more readable representation
+     * in Local time
      *
-     * @param dateStringUTC is the web publication date of the article
-     * @return the formatted date string (i.e "Jan 1, 2000  2:15 AM") from a dateStringUTC
+     * @param dateStringUTC is the web publication date of the article (i.e. 2014-02-04T08:00:00Z)
+     * @return the formatted date string in Local time(i.e "Jan 1, 2000  2:15 AM")
+     * from a date and time in UTC
      */
     private String formatDate(String dateStringUTC) {
         // Parse the dateString into a Date object
@@ -176,9 +180,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             e.printStackTrace();
         }
         // Initialize a SimpleDateFormat instance and configure it to provide a more readable
-        // representation according to the given format.
-        simpleDateFormat = new SimpleDateFormat("MMM d, yyyy  h:mm a");
-        return simpleDateFormat.format(dateObject);
+        // representation according to the given format, but still in UTC
+        SimpleDateFormat df = new SimpleDateFormat("MMM d, yyyy  h:mm a", Locale.ENGLISH);
+        String formattedDateUTC = df.format(dateObject);
+        // Convert UTC into Local time
+        df.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Date date = null;
+        try {
+            date = df.parse(formattedDateUTC);
+            df.setTimeZone(TimeZone.getDefault());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return df.format(date);
     }
 
     /**
