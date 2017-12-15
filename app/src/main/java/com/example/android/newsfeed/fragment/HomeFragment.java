@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Loader;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,8 +39,12 @@ public class HomeFragment extends Fragment
     private static final String NEWS_REQUEST_URL_1 =
             "http://content.guardianapis.com/search?q=debates&api-key=test";
 
-    private static final String NEWS_REQUEST_URL =
+    private static final String NEWS_REQUEST_URL_2 =
             "https://content.guardianapis.com/search?q=sport&order-by=newest&show-fields=thumbnail,trailText&show-tags=contributor&api-key=test";
+
+    private static final String NEWS_REQUEST_URL =
+            "https://content.guardianapis.com/search";
+
 
     /** Constant value for the earthquake loader ID. */
     private static final int NEWS_LOADER_ID = 1;
@@ -111,8 +116,24 @@ public class HomeFragment extends Fragment
 
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
+        // Parse breaks apart the URI string that is passed into its parameter
+        Uri baseUri = Uri.parse(NEWS_REQUEST_URL);
+
+        // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        // Append query parameter and its value. (e.g. the 'show-tag=contributor')
+        uriBuilder.appendQueryParameter("q", "");
+        uriBuilder.appendQueryParameter("order-by", "newest");
+        uriBuilder.appendQueryParameter("show-fields", "thumbnail,trailText,shortUrl");
+        uriBuilder.appendQueryParameter("format","json");
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
+        uriBuilder.appendQueryParameter("api-key", "test");
+
+        Log.e(LOG_TAG,uriBuilder.toString());
+
         // Create a new loader for the given URL
-        return new NewsLoader(getActivity(), NEWS_REQUEST_URL);
+        return new NewsLoader(getActivity(), uriBuilder.toString());
     }
 
     @Override
