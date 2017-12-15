@@ -17,4 +17,6 @@
     <!-- Content description of the image -->
     <string name="image_des">Image</string>
 
+    <string name="updated_just_now">Updated just now</string>
+
 </resources>

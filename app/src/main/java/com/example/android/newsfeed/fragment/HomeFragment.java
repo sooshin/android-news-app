@@ -91,7 +91,8 @@ public class HomeFragment extends Fragment
                 Log.i(LOG_TAG, "onRefresh called from SwipeRefreshLayout");
                 // restart the loader
                 initiateRefresh();
-                Toast.makeText(getActivity(), "SwipeRefresh", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getString(R.string.updated_just_now),
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
