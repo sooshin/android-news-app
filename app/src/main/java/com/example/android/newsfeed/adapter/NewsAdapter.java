@@ -118,10 +118,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 mContext.startActivity(websiteIntent);
             }
         });
-        // Load thumbnail with glide
-        Glide.with(mContext.getApplicationContext())
-                .load(currentNews.getThumbnail())
-                .into(holder.thumbnailImageView);
+
+        if (currentNews.getThumbnail() == null) {
+            holder.thumbnailImageView.setVisibility(View.GONE);
+        } else {
+            holder.thumbnailImageView.setVisibility(View.VISIBLE);
+            // Load thumbnail with glide
+            Glide.with(mContext.getApplicationContext())
+                    .load(currentNews.getThumbnail())
+                    .into(holder.thumbnailImageView);
+        }
         // Set an OnClickListener to share the data with friends via email or  social networking
         holder.shareImageView.setOnClickListener(new View.OnClickListener() {
             @Override

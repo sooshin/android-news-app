@@ -174,8 +174,10 @@ public class QueryUtils {
                 String trailText = null;
                 if (currentNews.has("fields")) {
                     JSONObject fieldsArray = currentNews.getJSONObject("fields");
-                    if (fieldsArray.length() != 0) {
+                    if (fieldsArray.has("thumbnail")) {
                         thumbnail = fieldsArray.getString("thumbnail");
+                    }
+                    if (fieldsArray.has("trailText")) {
                         trailText = fieldsArray.getString("trailText");
                     }
                 }
