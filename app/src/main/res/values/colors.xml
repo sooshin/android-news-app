@@ -19,4 +19,6 @@
     <color name="gradient_end_color">#885d5d5e</color>
     <color name="gradient_start_color">#880f0f10</color>
 
+    <color name="color_trail_text">#102027</color>
+    <color name="color_date_text">#a4a4a4</color>
 </resources>

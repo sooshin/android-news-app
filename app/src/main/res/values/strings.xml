@@ -16,6 +16,7 @@
 
     <!-- Content description of the image -->
     <string name="image_des">Image</string>
+    <string name="image_des_ic_share">Share</string>
 
     <string name="updated_just_now">Updated just now</string>
 

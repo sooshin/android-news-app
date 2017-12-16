@@ -19,8 +19,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:orientation="vertical">
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:id="@+id/title_card"
@@ -52,15 +51,17 @@
             <TextView
                 android:id="@+id/trail_text_card"
                 android:layout_width="wrap_content"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/section_card"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_toStartOf="@+id/thumbnail_image_card"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-light"
                 android:maxLines="6"
+                android:textColor="@color/color_trail_text"
                 android:textSize="16sp"
                 tools:text="trailText" />
 
@@ -82,6 +83,8 @@
                 android:layout_below="@id/author_card"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/color_date_text"
                 tools:text="date" />
 
             <ImageView
@@ -98,10 +101,10 @@
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_alignParentEnd="true"
-                android:layout_below="@+id/trail_text_card"
-                android:layout_marginEnd="17dp"
-                android:layout_marginTop="8dp"
+                android:layout_below="@+id/author_card"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/image_button_style"
+                android:contentDescription="@string/image_des_ic_share"
                 android:src="@drawable/ic_share_black_18dp" />
 
         </RelativeLayout>
