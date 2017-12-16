@@ -39,9 +39,13 @@
                 android:id="@+id/section_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_below="@+id/title_card"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_toStartOf="@id/thumbnail_image_card"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:textColor="@color/color_section"
                 tools:text="section" />
 
@@ -96,8 +100,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/trail_text_card"
                 android:layout_marginEnd="17dp"
-                android:background="@drawable/image_button_style"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/image_button_style"
                 android:src="@drawable/ic_share_black_18dp" />
 
         </RelativeLayout>
