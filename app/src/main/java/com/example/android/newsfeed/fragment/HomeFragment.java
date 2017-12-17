@@ -117,7 +117,8 @@ public class HomeFragment extends Fragment
 
         // Append query parameter and its value. (e.g. the 'show-tag=contributor')
         uriBuilder.appendQueryParameter("q", "");
-        //uriBuilder.appendQueryParameter("order-by", "newest");
+        uriBuilder.appendQueryParameter("order-by", "newest");
+        uriBuilder.appendQueryParameter("section","lifeandstyle");
         uriBuilder.appendQueryParameter("show-fields", "thumbnail,trailText,shortUrl");
         uriBuilder.appendQueryParameter("format","json");
         uriBuilder.appendQueryParameter("show-tags", "contributor");
