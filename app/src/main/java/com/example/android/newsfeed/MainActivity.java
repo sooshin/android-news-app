@@ -12,7 +12,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.android.newsfeed.fragment.BusinessFragment;
+import com.example.android.newsfeed.fragment.CultureFragment;
+import com.example.android.newsfeed.fragment.EnvironmentFragment;
+import com.example.android.newsfeed.fragment.FashionFragment;
 import com.example.android.newsfeed.fragment.HomeFragment;
+import com.example.android.newsfeed.fragment.ScienceFragment;
+import com.example.android.newsfeed.fragment.SocietyFragment;
+import com.example.android.newsfeed.fragment.SportFragment;
+import com.example.android.newsfeed.fragment.WorldFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -83,16 +91,38 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, new HomeFragment())
                     .commit();
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_world) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new WorldFragment())
+                    .commit();
+        } else if (id == R.id.nav_science) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new ScienceFragment())
+                    .commit();
+        } else if (id == R.id.nav_sport) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new SportFragment())
+                    .commit();
+        } else if (id == R.id.nav_environment) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new EnvironmentFragment())
+                    .commit();
+        } else if (id == R.id.nav_society) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new SocietyFragment())
+                    .commit();
+        } else if (id == R.id.nav_fashion) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new FashionFragment())
+                    .commit();
+        } else if (id == R.id.nav_business) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new BusinessFragment())
+                    .commit();
+        } else if (id == R.id.nav_culture) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new CultureFragment())
+                    .commit();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

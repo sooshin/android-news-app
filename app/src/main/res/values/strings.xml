@@ -6,7 +6,16 @@
 
     <string name="action_settings">Settings</string>
 
+    <!-- Strings for items in activity_main_drawer.xml -->
     <string name="ic_title_home">Home</string>
+    <string name="ic_title_world">World</string>
+    <string name="ic_title_science">Science</string>
+    <string name="ic_title_sport">Sport</string>
+    <string name="ic_title_environment">Environment</string>
+    <string name="ic_title_society">Society</string>
+    <string name="ic_title_fashion">Fashion</string>
+    <string name="ic_title_business">Business</string>
+    <string name="ic_title_culture">Culture</string>
 
     <!-- Text to display in the list when there are no news [CHAR LIMIT=NONE] -->
     <string name="no_news">No news found.</string>

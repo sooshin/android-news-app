@@ -30,10 +30,10 @@ import java.util.List;
  * Created by sj on 12/7/2017.
  */
 
-public class HomeFragment extends Fragment
+public class CultureFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<List<News>> {
 
-    public static final String LOG_TAG = HomeFragment.class.getName();
+    public static final String LOG_TAG = CultureFragment.class.getName();
 
     private static final String NEWS_REQUEST_URL =
             "https://content.guardianapis.com/search";
@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment
     /** Loading indicator that is displayed before the first load is completed */
     private View mLoadingIndicator;
 
-    /** The {@link android.support.v4.widget.SwipeRefreshLayout} that detects swipe gestures and
+    /** The {@link SwipeRefreshLayout} that detects swipe gestures and
      * triggers callbacks in the app.
      */
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -118,6 +118,7 @@ public class HomeFragment extends Fragment
         // Append query parameter and its value. (e.g. the 'show-tag=contributor')
         uriBuilder.appendQueryParameter("q", "");
         uriBuilder.appendQueryParameter("order-by", "newest");
+        uriBuilder.appendQueryParameter("section", "culture");
         uriBuilder.appendQueryParameter("show-fields", "thumbnail,trailText,shortUrl");
         uriBuilder.appendQueryParameter("format","json");
         uriBuilder.appendQueryParameter("show-tags", "contributor");
