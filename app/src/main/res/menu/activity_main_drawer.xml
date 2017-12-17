@@ -6,39 +6,39 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_home"
             android:title="@string/ic_title_home" />
         <item
             android:id="@+id/nav_world"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_world"
             android:title="@string/ic_title_world" />
         <item
             android:id="@+id/nav_science"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_science"
             android:title="@string/ic_title_science" />
         <item
             android:id="@+id/nav_sport"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_sport"
             android:title="@string/ic_title_sport" />
         <item
             android:id="@+id/nav_environment"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_environment"
             android:title="@string/ic_title_environment" />
         <item
             android:id="@+id/nav_society"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_society"
             android:title="@string/ic_title_society" />
         <item
             android:id="@+id/nav_fashion"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_fashion"
             android:title="@string/ic_title_fashion" />
         <item
             android:id="@+id/nav_business"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_business"
             android:title="@string/ic_title_business" />
         <item
             android:id="@+id/nav_culture"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_culture"
             android:title="@string/ic_title_culture" />
     </group>
 </menu>
