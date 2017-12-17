@@ -12,7 +12,8 @@
     <string name="no_news">No news found.</string>
 
     <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
-    <string name="no_internet_connection">No internet connection.</string>
+    <string name="no_internet_connection">You are offline. \nPlease check your Internet
+        connection.</string>
 
     <!-- Content description of the image -->
     <string name="image_des">Image</string>

@@ -188,8 +188,10 @@ public class HomeFragment extends Fragment
             // Otherwise, display error
             // First, hide loading indicator so error message will be visible
             mLoadingIndicator.setVisibility(View.GONE);
-            // Update empty state with no connection error message
+            // Update empty state with no connection error message and image
             mEmptyStateTextView.setText(R.string.no_internet_connection);
+            mEmptyStateTextView.setCompoundDrawablesWithIntrinsicBounds(0,
+                    R.drawable.ic_network_check,0,0);
         }
     }
 
@@ -207,8 +209,10 @@ public class HomeFragment extends Fragment
             // Otherwise, display error
             // First, hide loading indicator so error message will be visible
             mLoadingIndicator.setVisibility(View.GONE);
-            // Update empty state with no connection error message
+            // Update empty state with no connection error message and image
             mEmptyStateTextView.setText(R.string.no_internet_connection);
+            mEmptyStateTextView.setCompoundDrawablesWithIntrinsicBounds(0,
+                    R.drawable.ic_network_check,0,0);
 
             // Hide SwipeRefreshLayout
             mSwipeRefreshLayout.setVisibility(View.GONE);
