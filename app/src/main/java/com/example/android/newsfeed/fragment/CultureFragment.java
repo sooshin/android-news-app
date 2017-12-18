@@ -116,13 +116,13 @@ public class CultureFragment extends Fragment
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         // Append query parameter and its value. (e.g. the 'show-tag=contributor')
-        uriBuilder.appendQueryParameter("q", "");
-        uriBuilder.appendQueryParameter("order-by", "newest");
-        uriBuilder.appendQueryParameter("section", "culture");
-        uriBuilder.appendQueryParameter("show-fields", "thumbnail,trailText,shortUrl");
-        uriBuilder.appendQueryParameter("format","json");
-        uriBuilder.appendQueryParameter("show-tags", "contributor");
-        uriBuilder.appendQueryParameter("api-key", "test");
+        uriBuilder.appendQueryParameter(getString(R.string.q), "");
+        uriBuilder.appendQueryParameter(getString(R.string.order_by), getString(R.string.newest));
+        uriBuilder.appendQueryParameter(getString(R.string.section), getString(R.string.culture));
+        uriBuilder.appendQueryParameter(getString(R.string.show_fields), getString(R.string.thumbnail_and_trail_text));
+        uriBuilder.appendQueryParameter(getString(R.string.format),getString(R.string.json));
+        uriBuilder.appendQueryParameter(getString(R.string.show_tags), getString(R.string.contributor));
+        uriBuilder.appendQueryParameter(getString(R.string.api_key), getString(R.string.test));
 
         Log.e(LOG_TAG,uriBuilder.toString());
 

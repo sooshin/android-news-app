@@ -31,4 +31,27 @@
     <string name="updated_just_now">Updated just now</string>
 
     <string name="the_guardian">theguardian</string>
+
+    <string name="q">q</string>
+    <string name="order_by">order-by</string>
+    <string name="newest">newest</string>
+    <string name="show_fields">show-fields</string>
+    <string name="thumbnail_and_trail_text">thumbnail,trailText</string>
+    <string name="format">format</string>
+    <string name="json">json</string>
+    <string name="show_tags">show-tags</string>
+    <string name="contributor">contributor</string>
+    <string name="api_key">api-key</string>
+    <string name="test">test</string>
+    <string name="section">section</string>
+    <string name="world">world</string>
+    <string name="science">science</string>
+    <string name="sport">sport</string>
+    <string name="environment">environment</string>
+    <string name="society">society</string>
+    <string name="fashion">fashion</string>
+    <string name="business">business</string>
+    <string name="culture">culture</string>
+
+
 </resources>
