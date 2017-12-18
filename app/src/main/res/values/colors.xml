@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#005689</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="swipe_color_1">#4CAF50</color>
@@ -21,4 +21,7 @@
 
     <color name="color_trail_text">#102027</color>
     <color name="color_date_text">#a4a4a4</color>
+
+    <color name="color_app_bar_text">#005689</color>
+    <color name="color_tab_text">#a7c0cd</color>
 </resources>

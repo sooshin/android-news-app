@@ -15,12 +15,14 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@android:color/white"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <!-- TabLayout that provides a horizontal layout to display tabs -->
         <android.support.design.widget.TabLayout
             android:id="@+id/sliding_tabs"
+            style="@style/CategoryTab"
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabMode="scrollable" />

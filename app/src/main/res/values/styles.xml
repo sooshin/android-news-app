@@ -8,8 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <!-- Change Action Bar title text color  -->
-        <item name="titleTextColor">@android:color/black</item>
-        <item name="subtitleTextColor">@android:color/black</item>
+        <item name="titleTextColor">@color/color_app_bar_text</item>
+        <item name="subtitleTextColor">@color/color_app_bar_text</item>
 
         <!-- Set Navigation drawer icon color-->
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
@@ -26,7 +26,19 @@
 
     <!-- Set Navigation drawer icon color -->
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
-        <item name="color">@android:color/black</item>
+        <item name="color">@color/color_app_bar_text</item>
+    </style>
+
+    <!-- Style for a tab that displays a category name -->
+    <style name="CategoryTab" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/color_app_bar_text</item>
+        <item name="tabSelectedTextColor">@color/color_app_bar_text</item>
+        <item name="tabTextAppearance">@style/CategoryTabTextAppearance</item>
+    </style>
+
+    <!-- Text appearance style for a category tab -->
+    <style name="CategoryTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/color_tab_text</item>
     </style>
 
 </resources>
