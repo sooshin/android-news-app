@@ -10,27 +10,23 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/layout_margin_5"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        card_view:cardCornerRadius="2dp">
+        card_view:cardCornerRadius="@dimen/card_corner_radius">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="@dimen/layout_margin"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/title_card"
+                style="@style/TitleTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp"
-                android:paddingTop="16dp"
-                android:fontFamily="sans-serif-condensed"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textStyle="bold"
                 tools:text="title" />
@@ -38,43 +34,32 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="@dimen/layout_margin_8"
+                android:layout_marginTop="@dimen/layout_margin_4">
 
                 <TextView
                     android:id="@+id/section_card"
+                    style="@style/SectionTextViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_toStartOf="@id/thumbnail_image_card"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:textColor="@color/color_section"
                     tools:text="section" />
 
                 <TextView
                     android:id="@+id/trail_text_card"
+                    style="@style/TrailTextViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/section_card"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_toStartOf="@+id/thumbnail_image_card"
-                    android:ellipsize="end"
-                    android:fontFamily="sans-serif-light"
-                    android:maxLines="6"
-                    android:textColor="@color/color_trail_text"
-                    android:textSize="16sp"
                     tools:text="trailText" />
 
                 <ImageView
                     android:id="@+id/thumbnail_image_card"
-                    android:layout_width="140dp"
-                    android:layout_height="120dp"
+                    android:layout_width="@dimen/thumbnail_image_width"
+                    android:layout_height="@dimen/thumbnail_image_height"
                     android:layout_alignParentEnd="true"
                     android:contentDescription="@string/image_des"
                     android:scaleType="centerCrop" />
@@ -82,10 +67,11 @@
 
             <TextView
                 android:id="@+id/author_card"
+                style="AuthorTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginLeft="@dimen/layout_margin"
+                android:layout_marginRight="@dimen/layout_margin"
                 android:textColor="@color/color_author"
                 android:textStyle="italic"
                 tools:text="author" />
@@ -96,22 +82,20 @@
 
                 <TextView
                     android:id="@+id/date_card"
+                    style="@style/DateTextViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_toStartOf="@+id/share_image_card"
-                    android:fontFamily="sans-serif"
-                    android:textColor="@color/color_date_text"
                     tools:text="date" />
 
                 <ImageView
                     android:id="@+id/share_image_card"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
+                    style="ShareImageViewStyle"
+                    android:layout_width="@dimen/image_share"
+                    android:layout_height="@dimen/image_share"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/layout_margin"
                     android:background="@drawable/image_button_style"
                     android:contentDescription="@string/image_des_ic_share"
                     android:src="@drawable/ic_share_black_18dp" />

@@ -41,4 +41,42 @@
         <item name="android:textColor">@color/color_tab_text</item>
     </style>
 
+    <!-- Style for title TextView-->
+    <style name="TitleTextViewStyle">
+        <item name="android:paddingBottom">@dimen/padding_bottom_4</item>
+        <item name="android:paddingTop">@dimen/padding</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+    </style>
+
+    <!-- Style for section TextView -->
+    <style name="SectionTextViewStyle">
+        <item name="android:layout_marginLeft">@dimen/layout_margin</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/color_section</item>
+    </style>
+
+    <!-- Style for trailText TextView -->
+    <style name="TrailTextViewStyle">
+        <item name="android:layout_marginBottom">@dimen/layout_margin_8</item>
+        <item name="android:layout_marginLeft">@dimen/layout_margin</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:maxLines">6</item>
+        <item name="android:textColor">@color/color_trail_text</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Style for Date TextView -->
+    <style name="DateTextViewStyle">
+        <item name="android:layout_marginLeft">@dimen/layout_margin</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/color_date_text</item>
+    </style>
+
 </resources>
