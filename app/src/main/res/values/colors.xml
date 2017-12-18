@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimary">#005689</color>
     <color name="colorPrimaryDark">#005689</color>
     <color name="colorAccent">#FF4081</color>
 
@@ -24,4 +24,7 @@
 
     <color name="color_app_bar_text">#005689</color>
     <color name="color_tab_text">#a7c0cd</color>
+
+    <color name="nav_bar_start">#7db1ec</color>
+    <color name="nav_bar_end">#002e5b</color>
 </resources>
