@@ -1,10 +1,11 @@
 package com.example.android.newsfeed;
 
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,18 +13,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.android.newsfeed.fragment.BusinessFragment;
-import com.example.android.newsfeed.fragment.CultureFragment;
-import com.example.android.newsfeed.fragment.EnvironmentFragment;
-import com.example.android.newsfeed.fragment.FashionFragment;
-import com.example.android.newsfeed.fragment.HomeFragment;
-import com.example.android.newsfeed.fragment.ScienceFragment;
-import com.example.android.newsfeed.fragment.SocietyFragment;
-import com.example.android.newsfeed.fragment.SportFragment;
-import com.example.android.newsfeed.fragment.WorldFragment;
+import com.example.android.newsfeed.adapter.CategoryFragmentPagerAdapter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +33,27 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        // Find the view pager that will allow the user to swipe between fragments
+        viewPager = findViewById(R.id.viewpager);
+
+        // Give the TabLayout the ViewPager
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
+        // Set gravity for tab bar
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
         NavigationView navigationView = findViewById(R.id.nav_view);
+        assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
 
         // Set the default fragment when starting the app
         onNavigationItemSelected(navigationView.getMenu().getItem(0).setChecked(true));
+
+        // Set category fragment pager adapter
+        CategoryFragmentPagerAdapter pagerAdapter =
+                new CategoryFragmentPagerAdapter(this, getFragmentManager());
+        // Set the pager adapter onto the view pager
+        viewPager.setAdapter(pagerAdapter);
     }
 
     @Override
@@ -83,46 +94,25 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        //
-        FragmentManager fragmentManager = getFragmentManager();
-
+        // Switch Fragments in a ViewPager on clicking items in Navigation Drawer
         if (id == R.id.nav_home) {
-            // Handle the home action
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new HomeFragment())
-                    .commit();
+            viewPager.setCurrentItem(0);
         } else if (id == R.id.nav_world) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new WorldFragment())
-                    .commit();
+            viewPager.setCurrentItem(1);
         } else if (id == R.id.nav_science) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new ScienceFragment())
-                    .commit();
+            viewPager.setCurrentItem(2);
         } else if (id == R.id.nav_sport) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new SportFragment())
-                    .commit();
+            viewPager.setCurrentItem(3);
         } else if (id == R.id.nav_environment) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new EnvironmentFragment())
-                    .commit();
+            viewPager.setCurrentItem(4);
         } else if (id == R.id.nav_society) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new SocietyFragment())
-                    .commit();
+            viewPager.setCurrentItem(5);
         } else if (id == R.id.nav_fashion) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new FashionFragment())
-                    .commit();
+            viewPager.setCurrentItem(6);
         } else if (id == R.id.nav_business) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new BusinessFragment())
-                    .commit();
+            viewPager.setCurrentItem(7);
         } else if (id == R.id.nav_culture) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new CultureFragment())
-                    .commit();
+            viewPager.setCurrentItem(8);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
