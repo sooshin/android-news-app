@@ -187,8 +187,8 @@ public class HomeFragment extends Fragment
             mLoadingIndicator.setVisibility(View.GONE);
             // Update empty state with no connection error message and image
             mEmptyStateTextView.setText(R.string.no_internet_connection);
-            mEmptyStateTextView.setCompoundDrawablesWithIntrinsicBounds(0,
-                    R.drawable.ic_network_check,0,0);
+            mEmptyStateTextView.setCompoundDrawablesWithIntrinsicBounds(Constants.DEFAULT_NUMBER,
+                    R.drawable.ic_network_check,Constants.DEFAULT_NUMBER,Constants.DEFAULT_NUMBER);
         }
     }
 
@@ -208,8 +208,8 @@ public class HomeFragment extends Fragment
             mLoadingIndicator.setVisibility(View.GONE);
             // Update empty state with no connection error message and image
             mEmptyStateTextView.setText(R.string.no_internet_connection);
-            mEmptyStateTextView.setCompoundDrawablesWithIntrinsicBounds(0,
-                    R.drawable.ic_network_check,0,0);
+            mEmptyStateTextView.setCompoundDrawablesWithIntrinsicBounds(Constants.DEFAULT_NUMBER,
+                    R.drawable.ic_network_check,Constants.DEFAULT_NUMBER,Constants.DEFAULT_NUMBER);
 
             // Hide SwipeRefreshLayout
             mSwipeRefreshLayout.setVisibility(View.GONE);

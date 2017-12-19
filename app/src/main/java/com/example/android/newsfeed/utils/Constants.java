@@ -24,6 +24,18 @@ public class Constants {
     public static final String JSON_KEY_THUMBNAIL = "thumbnail";
     public static final String JSON_KEY_TRAIL_TEXT = "trailText";
 
+    /** Read timeout for setting up the HTTP request */
+    public static final int READ_TIMEOUT = 10000; /* milliseconds */
+
+    /** Connect timeout for setting up the HTTP request */
+    public static final int CONNECT_TIMEOUT = 15000; /* milliseconds */
+
+    /** HTTP response code when the request is successful */
+    public static final int SUCCESS_RESPONSE_CODE = 200;
+
     /** URL for news data from the guardian data set */
     public static final String NEWS_REQUEST_URL = "https://content.guardianapis.com/search";
+
+    /** Default number to set the image on the top of the textView */
+    public static final int DEFAULT_NUMBER = 0;
 }
