@@ -150,35 +150,35 @@ public class QueryUtils {
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
 
             // Extract the JSONObject associated with the key called "response"
-            JSONObject responseJsonObject = baseJsonResponse.getJSONObject("response");
+            JSONObject responseJsonObject = baseJsonResponse.getJSONObject(Constants.JSON_KEY_RESPONSE);
 
-            JSONArray resultsArray = responseJsonObject.getJSONArray("results");
+            JSONArray resultsArray = responseJsonObject.getJSONArray(Constants.JSON_KEY_RESULTS);
 
             for (int i = 0; i < resultsArray.length(); i++) {
                 JSONObject currentNews = resultsArray.getJSONObject(i);
-                String webTitle = currentNews.getString("webTitle");
-                String sectionName = currentNews.getString("sectionName");
-                String webPublicationDate = currentNews.getString("webPublicationDate");
-                String webUrl = currentNews.getString("webUrl");
+                String webTitle = currentNews.getString(Constants.JSON_KEY_WEB_TITLE);
+                String sectionName = currentNews.getString(Constants.JSON_KEY_SECTION_NAME);
+                String webPublicationDate = currentNews.getString(Constants.JSON_KEY_WEB_PUBLICATION_DATE);
+                String webUrl = currentNews.getString(Constants.JSON_KEY_WEB_URL);
 
                 String author = null;
-                if (currentNews.has("tags")) {
-                    JSONArray tagsArray = currentNews.getJSONArray("tags");
+                if (currentNews.has(Constants.JSON_KEY_TAGS)) {
+                    JSONArray tagsArray = currentNews.getJSONArray(Constants.JSON_KEY_TAGS);
                     if (tagsArray.length() != 0) {
                         JSONObject firstTagsItem = tagsArray.getJSONObject(0);
-                        author = firstTagsItem.getString("webTitle");
+                        author = firstTagsItem.getString(Constants.JSON_KEY_WEB_TITLE);
                     }
                 }
 
                 String thumbnail = null;
                 String trailText = null;
-                if (currentNews.has("fields")) {
-                    JSONObject fieldsArray = currentNews.getJSONObject("fields");
-                    if (fieldsArray.has("thumbnail")) {
-                        thumbnail = fieldsArray.getString("thumbnail");
+                if (currentNews.has(Constants.JSON_KEY_FIELDS)) {
+                    JSONObject fieldsArray = currentNews.getJSONObject(Constants.JSON_KEY_FIELDS);
+                    if (fieldsArray.has(Constants.JSON_KEY_THUMBNAIL)) {
+                        thumbnail = fieldsArray.getString(Constants.JSON_KEY_THUMBNAIL);
                     }
-                    if (fieldsArray.has("trailText")) {
-                        trailText = fieldsArray.getString("trailText");
+                    if (fieldsArray.has(Constants.JSON_KEY_TRAIL_TEXT)) {
+                        trailText = fieldsArray.getString(Constants.JSON_KEY_TRAIL_TEXT);
                     }
                 }
 
