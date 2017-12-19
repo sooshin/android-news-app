@@ -152,31 +152,49 @@ public class QueryUtils {
             // Extract the JSONObject associated with the key called "response"
             JSONObject responseJsonObject = baseJsonResponse.getJSONObject(Constants.JSON_KEY_RESPONSE);
 
+            // Extract the JSONArray associated with the key called "results"
             JSONArray resultsArray = responseJsonObject.getJSONArray(Constants.JSON_KEY_RESULTS);
 
+            // For each element in the resultsArray, create a {@link News} object
             for (int i = 0; i < resultsArray.length(); i++) {
+
+                // Get a single news at position i within the list of news
                 JSONObject currentNews = resultsArray.getJSONObject(i);
+                // For a given news, extract the value for the key called "webTitle"
                 String webTitle = currentNews.getString(Constants.JSON_KEY_WEB_TITLE);
+                // For a given news, extract the value for the key called "sectionName"
                 String sectionName = currentNews.getString(Constants.JSON_KEY_SECTION_NAME);
+                // For a given news, extract the value for the key called "webPublicationDate"
                 String webPublicationDate = currentNews.getString(Constants.JSON_KEY_WEB_PUBLICATION_DATE);
+                // For a given news, extract the value for the key called "webUrl"
                 String webUrl = currentNews.getString(Constants.JSON_KEY_WEB_URL);
 
+                // For a given news, if it contains the key called "tags", extract JSONArray
+                // associated with the key "tags"
                 String author = null;
                 if (currentNews.has(Constants.JSON_KEY_TAGS)) {
+                    // Extract the JSONArray associated with the key called "tags"
                     JSONArray tagsArray = currentNews.getJSONArray(Constants.JSON_KEY_TAGS);
                     if (tagsArray.length() != 0) {
+                        // Extract the first JSONObject in the tagsArray
                         JSONObject firstTagsItem = tagsArray.getJSONObject(0);
+                        // Extract the value for the key called "webTitle"
                         author = firstTagsItem.getString(Constants.JSON_KEY_WEB_TITLE);
                     }
                 }
 
+                // For a given news, if it contains the key called "fields", extract JSONObject
+                // associated with the key "fields"
                 String thumbnail = null;
                 String trailText = null;
                 if (currentNews.has(Constants.JSON_KEY_FIELDS)) {
+                    // Extract the JSONObject associated with the key called "fields"
                     JSONObject fieldsArray = currentNews.getJSONObject(Constants.JSON_KEY_FIELDS);
+                    // If there is the key called "thumbnail", extract the value for the key called "thumbnail"
                     if (fieldsArray.has(Constants.JSON_KEY_THUMBNAIL)) {
                         thumbnail = fieldsArray.getString(Constants.JSON_KEY_THUMBNAIL);
                     }
+                    // If there is the key called "trailText", extract the value for the key called "trailText"
                     if (fieldsArray.has(Constants.JSON_KEY_TRAIL_TEXT)) {
                         trailText = fieldsArray.getString(Constants.JSON_KEY_TRAIL_TEXT);
                     }
