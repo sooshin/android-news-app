@@ -24,4 +24,6 @@ public class Constants {
     public static final String JSON_KEY_THUMBNAIL = "thumbnail";
     public static final String JSON_KEY_TRAIL_TEXT = "trailText";
 
+    /** URL for news data from the guardian data set */
+    public static final String NEWS_REQUEST_URL = "https://content.guardianapis.com/search";
 }

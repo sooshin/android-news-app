@@ -22,6 +22,7 @@ import com.example.android.newsfeed.News;
 import com.example.android.newsfeed.NewsLoader;
 import com.example.android.newsfeed.R;
 import com.example.android.newsfeed.adapter.NewsAdapter;
+import com.example.android.newsfeed.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +35,6 @@ public class BusinessFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<List<News>> {
 
     public static final String LOG_TAG = BusinessFragment.class.getName();
-
-    private static final String NEWS_REQUEST_URL =
-            "https://content.guardianapis.com/search";
 
     /** Constant value for the earthquake loader ID. */
     private static final int NEWS_LOADER_ID = 1;
@@ -110,7 +108,7 @@ public class BusinessFragment extends Fragment
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         // Parse breaks apart the URI string that is passed into its parameter
-        Uri baseUri = Uri.parse(NEWS_REQUEST_URL);
+        Uri baseUri = Uri.parse(Constants.NEWS_REQUEST_URL);
 
         // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
         Uri.Builder uriBuilder = baseUri.buildUpon();
