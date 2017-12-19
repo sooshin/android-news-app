@@ -1,7 +1,7 @@
 package com.example.android.newsfeed.utils;
 
 /**
- * Created by sj on 12/19/2017.
+ * Store Constants for the NewsFeed app.
  */
 
 public class Constants {
