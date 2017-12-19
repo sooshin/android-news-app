@@ -15,6 +15,7 @@ import com.example.android.newsfeed.fragment.ScienceFragment;
 import com.example.android.newsfeed.fragment.SocietyFragment;
 import com.example.android.newsfeed.fragment.SportFragment;
 import com.example.android.newsfeed.fragment.WorldFragment;
+import com.example.android.newsfeed.utils.Constants;
 
 /**
  * Provides the appropriate {@link Fragment} for a view pager.
@@ -43,23 +44,23 @@ public class CategoryFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0:
+            case Constants.HOME:
                 return new HomeFragment();
-            case 1:
+            case Constants.WORLD:
                 return new WorldFragment();
-            case 2:
+            case Constants.SCIENCE:
                 return new ScienceFragment();
-            case 3:
+            case Constants.SPORT:
                 return new SportFragment();
-            case 4:
+            case Constants.ENVIRONMENT:
                 return new EnvironmentFragment();
-            case 5:
+            case Constants.SOCIETY:
                 return new SocietyFragment();
-            case 6:
+            case Constants.FASHION:
                 return new FashionFragment();
-            case 7:
+            case Constants.BUSINESS:
                 return new BusinessFragment();
-            case 8:
+            case Constants.CULTURE:
                 return new CultureFragment();
             default:
                 return null;

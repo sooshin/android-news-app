@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.android.newsfeed.adapter.CategoryFragmentPagerAdapter;
+import com.example.android.newsfeed.utils.Constants;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -73,23 +74,23 @@ public class MainActivity extends AppCompatActivity
 
         // Switch Fragments in a ViewPager on clicking items in Navigation Drawer
         if (id == R.id.nav_home) {
-            viewPager.setCurrentItem(0);
+            viewPager.setCurrentItem(Constants.HOME);
         } else if (id == R.id.nav_world) {
-            viewPager.setCurrentItem(1);
+            viewPager.setCurrentItem(Constants.WORLD);
         } else if (id == R.id.nav_science) {
-            viewPager.setCurrentItem(2);
+            viewPager.setCurrentItem(Constants.SCIENCE);
         } else if (id == R.id.nav_sport) {
-            viewPager.setCurrentItem(3);
+            viewPager.setCurrentItem(Constants.SPORT);
         } else if (id == R.id.nav_environment) {
-            viewPager.setCurrentItem(4);
+            viewPager.setCurrentItem(Constants.ENVIRONMENT);
         } else if (id == R.id.nav_society) {
-            viewPager.setCurrentItem(5);
+            viewPager.setCurrentItem(Constants.SOCIETY);
         } else if (id == R.id.nav_fashion) {
-            viewPager.setCurrentItem(6);
+            viewPager.setCurrentItem(Constants.FASHION);
         } else if (id == R.id.nav_business) {
-            viewPager.setCurrentItem(7);
+            viewPager.setCurrentItem(Constants.BUSINESS);
         } else if (id == R.id.nav_culture) {
-            viewPager.setCurrentItem(8);
+            viewPager.setCurrentItem(Constants.CULTURE);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
