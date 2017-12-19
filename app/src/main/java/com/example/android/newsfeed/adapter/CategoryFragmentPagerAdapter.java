@@ -82,28 +82,28 @@ public class CategoryFragmentPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         int titleResId;
         switch (position) {
-            case 0:
+            case Constants.HOME:
                 titleResId = R.string.ic_title_home;
                 break;
-            case 1:
+            case Constants.WORLD:
                 titleResId = R.string.ic_title_world;
                 break;
-            case 2:
+            case Constants.SCIENCE:
                 titleResId = R.string.ic_title_science;
                 break;
-            case 3:
+            case Constants.SPORT:
                 titleResId = R.string.ic_title_sport;
                 break;
-            case 4:
+            case Constants.ENVIRONMENT:
                 titleResId = R.string.ic_title_environment;
                 break;
-            case 5:
+            case Constants.SOCIETY:
                 titleResId = R.string.ic_title_society;
                 break;
-            case 6:
+            case Constants.FASHION:
                 titleResId = R.string.ic_title_fashion;
                 break;
-            case 7:
+            case Constants.BUSINESS:
                 titleResId = R.string.ic_title_business;
                 break;
             default:
