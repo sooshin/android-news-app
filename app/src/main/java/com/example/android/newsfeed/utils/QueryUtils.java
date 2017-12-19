@@ -189,14 +189,14 @@ public class QueryUtils {
                 String trailText = null;
                 if (currentNews.has(Constants.JSON_KEY_FIELDS)) {
                     // Extract the JSONObject associated with the key called "fields"
-                    JSONObject fieldsArray = currentNews.getJSONObject(Constants.JSON_KEY_FIELDS);
+                    JSONObject fieldsObject = currentNews.getJSONObject(Constants.JSON_KEY_FIELDS);
                     // If there is the key called "thumbnail", extract the value for the key called "thumbnail"
-                    if (fieldsArray.has(Constants.JSON_KEY_THUMBNAIL)) {
-                        thumbnail = fieldsArray.getString(Constants.JSON_KEY_THUMBNAIL);
+                    if (fieldsObject.has(Constants.JSON_KEY_THUMBNAIL)) {
+                        thumbnail = fieldsObject.getString(Constants.JSON_KEY_THUMBNAIL);
                     }
                     // If there is the key called "trailText", extract the value for the key called "trailText"
-                    if (fieldsArray.has(Constants.JSON_KEY_TRAIL_TEXT)) {
-                        trailText = fieldsArray.getString(Constants.JSON_KEY_TRAIL_TEXT);
+                    if (fieldsObject.has(Constants.JSON_KEY_TRAIL_TEXT)) {
+                        trailText = fieldsObject.getString(Constants.JSON_KEY_TRAIL_TEXT);
                     }
                 }
 
