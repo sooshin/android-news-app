@@ -118,7 +118,7 @@ public class EnvironmentFragment extends Fragment
         // Append query parameter and its value. (e.g. the 'show-tag=contributor')
         uriBuilder.appendQueryParameter(getString(R.string.q), "");
         uriBuilder.appendQueryParameter(getString(R.string.order_by), getString(R.string.newest));
-        uriBuilder.appendQueryParameter(getString(R.string.section), getString(R.string.business));
+        uriBuilder.appendQueryParameter(getString(R.string.section), getString(R.string.environment));
         uriBuilder.appendQueryParameter(getString(R.string.show_fields), getString(R.string.thumbnail_and_trail_text));
         uriBuilder.appendQueryParameter(getString(R.string.format),getString(R.string.json));
         uriBuilder.appendQueryParameter(getString(R.string.show_tags), getString(R.string.contributor));
