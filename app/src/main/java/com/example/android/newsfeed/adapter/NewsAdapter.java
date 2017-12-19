@@ -146,7 +146,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         sharingIntent.setType("text/plain");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT,
                 news.getTitle() + " : " + news.getUrl());
-        mContext.startActivity(Intent.createChooser(sharingIntent, "Share Article"));
+        mContext.startActivity(Intent.createChooser(sharingIntent,
+                mContext.getString(R.string.share_article)));
     }
 
     /**
