@@ -33,6 +33,9 @@ public class Constants {
     /** HTTP response code when the request is successful */
     public static final int SUCCESS_RESPONSE_CODE = 200;
 
+    /** Request method type "GET" for reading information from the server */
+    public static final String REQUEST_METHOD_GET = "GET";
+
     /** URL for news data from the guardian data set */
     public static final String NEWS_REQUEST_URL = "https://content.guardianapis.com/search";
 
