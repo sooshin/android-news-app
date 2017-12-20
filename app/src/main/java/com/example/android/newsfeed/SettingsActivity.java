@@ -22,6 +22,11 @@ public class SettingsActivity extends AppCompatActivity {
 
     public static class NewsPreferenceFragment extends PreferenceFragment {
 
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.settings_main);
+        }
     }
 
     // Go back to the MainActivity when up button in action bar is clicked on.
