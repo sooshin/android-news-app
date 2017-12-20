@@ -28,9 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by sj on 12/19/2017.
+ * The BaseArticlesFragment is a {@link Fragment} subclass that implements the LoaderManager.LoaderCallbacks
+ * interface in order for Fragment to be a client that interacts with the LoaderManager. It is
+ * base class that is responsible for displaying a set of articles, regardless of type.
  */
-
 public class BaseArticlesFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<List<News>>{
 

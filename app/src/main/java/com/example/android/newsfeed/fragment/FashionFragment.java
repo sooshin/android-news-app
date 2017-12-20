@@ -16,9 +16,9 @@ import com.example.android.newsfeed.utils.Constants;
 import java.util.List;
 
 /**
- * Created by sj on 12/7/2017.
+ * The FashionFragment is a {@link BaseArticlesFragment} subclass that
+ * reuses methods of the parent class by passing the specific type of article to be fetched.
  */
-
 public class FashionFragment extends BaseArticlesFragment {
 
     public static final String LOG_TAG = FashionFragment.class.getName();
