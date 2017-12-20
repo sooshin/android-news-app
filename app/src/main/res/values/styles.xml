@@ -13,6 +13,9 @@
 
         <!-- Set Navigation drawer icon color-->
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
+        <!-- Change Action Bar overflow icon (Options Menu button) color -->
+        <item name="actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -27,6 +30,11 @@
     <!-- Set Navigation drawer icon color -->
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@color/color_app_bar_text</item>
+    </style>
+
+    <!-- Change Action Bar overflow icon (Options Menu button) color -->
+    <style name="MyOverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/color_app_bar_text</item>
     </style>
 
     <!-- Style for a tab that displays a category name -->
