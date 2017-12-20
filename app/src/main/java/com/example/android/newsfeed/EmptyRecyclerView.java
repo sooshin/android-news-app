@@ -53,7 +53,7 @@ public class EmptyRecyclerView extends RecyclerView {
      * Checks if both mEmptyView and adapter are not null.
      * Hide or show mEmptyView depending on the size of the data(item count) in the adapter.
      */
-    void checkIfEmpty() {
+    private void checkIfEmpty() {
         // If the item count provided by the adapter is equal to zero, make the empty View visible
         // and hide the EmptyRecyclerView.
         // Otherwise, hide the empty View and make the EmptyRecyclerView visible.

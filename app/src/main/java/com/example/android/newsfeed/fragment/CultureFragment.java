@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class CultureFragment extends BaseArticlesFragment {
 
-    public static final String LOG_TAG = CultureFragment.class.getName();
+    private static final String LOG_TAG = CultureFragment.class.getName();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

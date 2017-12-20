@@ -27,7 +27,7 @@ import java.util.List;
 public class QueryUtils {
 
     /** Tag for the log messages */
-    public static final String LOG_TAG = QueryUtils.class.getSimpleName();
+    private static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.

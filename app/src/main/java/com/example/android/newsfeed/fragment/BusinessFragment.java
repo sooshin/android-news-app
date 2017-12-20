@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class BusinessFragment extends BaseArticlesFragment {
 
-    public static final String LOG_TAG = BusinessFragment.class.getName();
+    private static final String LOG_TAG = BusinessFragment.class.getName();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

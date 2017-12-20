@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class EnvironmentFragment extends BaseArticlesFragment {
 
-    public static final String LOG_TAG = EnvironmentFragment.class.getName();
+    private static final String LOG_TAG = EnvironmentFragment.class.getName();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

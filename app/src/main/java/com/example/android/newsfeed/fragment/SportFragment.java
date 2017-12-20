@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class SportFragment extends BaseArticlesFragment {
 
-    public static final String LOG_TAG = SportFragment.class.getName();
+    private static final String LOG_TAG = SportFragment.class.getName();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

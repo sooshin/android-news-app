@@ -35,7 +35,7 @@ import java.util.List;
 public class BaseArticlesFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<List<News>>{
 
-    public static final String LOG_TAG = BaseArticlesFragment.class.getName();
+    private static final String LOG_TAG = BaseArticlesFragment.class.getName();
 
     /** Constant value for the earthquake loader ID. */
     private static final int NEWS_LOADER_ID = 1;
