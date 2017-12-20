@@ -168,6 +168,16 @@ public class BaseArticlesFragment extends Fragment
     }
 
     /**
+     * When the user returns to the previous screen by pressing the up button in the SettingsActivity,
+     * restart the Loader to reflect the current value of the preference.
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        restartLoader(isConnected());
+    }
+
+    /**
      *  Check for network connectivity.
      */
     private boolean isConnected() {
