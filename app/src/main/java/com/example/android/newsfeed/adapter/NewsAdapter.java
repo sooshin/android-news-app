@@ -210,7 +210,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     private static long getDateInMillis(String formattedDate) {
         SimpleDateFormat simpleDateFormat =
                 new SimpleDateFormat("MMM d, yyyy  h:mm a");
-        long dateInMillis = 0;
+        long dateInMillis;
         Date dateObject;
         try {
             dateObject = simpleDateFormat.parse(formattedDate);
