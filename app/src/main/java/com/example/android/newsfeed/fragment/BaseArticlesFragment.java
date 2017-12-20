@@ -4,10 +4,12 @@ import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
@@ -108,6 +110,15 @@ public class BaseArticlesFragment extends Fragment
 
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+        // getString retrieves a String value from the preferences. The second parameter is the
+        // default value for this preference.
+        String numOfItems = sharedPrefs.getString(
+                getString(R.string.settings_number_of_items_key),
+                getString(R.string.settings_number_of_items_default));
+
         // Parse breaks apart the URI string that is passed into its parameter
         Uri baseUri = Uri.parse(Constants.NEWS_REQUEST_URL);
 
@@ -121,6 +132,7 @@ public class BaseArticlesFragment extends Fragment
         uriBuilder.appendQueryParameter(getString(R.string.format),getString(R.string.json));
         uriBuilder.appendQueryParameter(getString(R.string.show_tags), getString(R.string.contributor));
         uriBuilder.appendQueryParameter(getString(R.string.api_key), getString(R.string.test));
+        uriBuilder.appendQueryParameter("page-size", numOfItems);
 
         Log.e(LOG_TAG,uriBuilder.toString());
 
