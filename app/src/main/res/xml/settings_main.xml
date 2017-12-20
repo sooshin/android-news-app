@@ -8,6 +8,7 @@
         android:inputType="numberDecimal"
         android:key="@string/settings_number_of_items_key"
         android:selectAllOnFocus="true"
+        android:hint="@string/hint_num_of_items"
         android:title="@string/settings_number_of_items_label" />
 
 </PreferenceScreen>

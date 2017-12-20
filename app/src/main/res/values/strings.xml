@@ -54,6 +54,8 @@
     <string name="business">business</string>
     <string name="culture">culture</string>
 
+    <string name="hint_num_of_items">Between 1 and 50</string>
+
     <!--Strings to be used for the Preference Labels -->
     <string name="settings_number_of_items_label">Number of Items</string>
     <string name="settings_number_of_items_key" translatable="false">number_of_items</string>
