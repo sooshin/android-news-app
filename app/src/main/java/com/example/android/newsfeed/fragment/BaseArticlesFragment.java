@@ -119,6 +119,11 @@ public class BaseArticlesFragment extends Fragment
                 getString(R.string.settings_number_of_items_key),
                 getString(R.string.settings_number_of_items_default));
 
+        // Get the information from SharedPreferences and check for the value associated with the key
+        String orderBy = sharedPrefs.getString(
+                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_default));
+
         // Parse breaks apart the URI string that is passed into its parameter
         Uri baseUri = Uri.parse(Constants.NEWS_REQUEST_URL);
 
@@ -127,7 +132,7 @@ public class BaseArticlesFragment extends Fragment
 
         // Append query parameter and its value. (e.g. the 'show-tag=contributor')
         uriBuilder.appendQueryParameter(getString(R.string.q), "");
-        uriBuilder.appendQueryParameter(getString(R.string.order_by), getString(R.string.newest));
+        uriBuilder.appendQueryParameter(getString(R.string.order_by), orderBy);
         uriBuilder.appendQueryParameter(getString(R.string.show_fields), getString(R.string.thumbnail_and_trail_text));
         uriBuilder.appendQueryParameter(getString(R.string.format),getString(R.string.json));
         uriBuilder.appendQueryParameter(getString(R.string.show_tags), getString(R.string.contributor));
