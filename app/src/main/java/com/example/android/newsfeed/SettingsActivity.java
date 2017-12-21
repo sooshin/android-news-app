@@ -2,6 +2,7 @@ package com.example.android.newsfeed;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -39,25 +40,40 @@ public class SettingsActivity extends AppCompatActivity {
             Preference numOfItems = findPreference(getString(R.string.settings_number_of_items_key));
             // bind the current preference value to be displayed
             bindPreferenceSummaryToValue(numOfItems);
+
+            // Find the "order by" Preference object according to its key
+            Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
+            // Update the summary so that it displays the current value stored in SharedPreferences
+            bindPreferenceSummaryToValue(orderBy);
         }
 
         /**
-         * This method is called when the user has changed a Preference
-         *
+         * This method is called when the user has changed a Preference.
+         * Update the displayed preference summary (the UI) after it has been changed.
          * @param preference the changed Preference
          * @param value the new value of the Preference
          * @return True to update the state of the Preference with the new value
          */
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
-            // Update the displayed preference summary (the UI) after it has been changed
             String stringValue = value.toString();
-            preference.setSummary(stringValue);
+            // Update the summary of a ListPreference using the label
+            if (preference instanceof ListPreference) {
+                ListPreference listPreference = (ListPreference) preference;
+                int prefIndex = listPreference.findIndexOfValue(stringValue);
+                if (prefIndex >= 0) {
+                    CharSequence[] labels = listPreference.getEntries();
+                    preference.setSummary(labels[prefIndex]);
+                }
+            } else {
+                preference.setSummary(stringValue);
+            }
             return true;
         }
 
         /**
-         * Bind the value that is in SharedPreferences to what will show up in the preference summary
+         * Set this fragment as the OnPreferenceChangeListener and
+         * bind the value that is in SharedPreferences to what will show up in the preference summary
          */
         private void bindPreferenceSummaryToValue(Preference preference) {
             // Set the current NewsPreferenceFragment instance to listen for changes to the preference
