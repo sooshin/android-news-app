@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  for the human-readable labels -->
+    <string-array name="settings_order_by_labels">
+        <item>@string/settings_order_by_newest_label</item>
+        <item>@string/settings_order_by_oldest_label</item>
+        <item>@string/settings_order_by_relevance_label</item>
+    </string-array>
+
+    <!-- for the value to save for a preference when an entry from entries is selected -->
+    <string-array name="settings_order_by_values">
+        <item>@string/settings_order_by_newest_value</item>
+        <item>@string/settings_order_by_oldest_value</item>
+        <item>@string/settings_order_by_relevance_value</item>
+    </string-array>
+</resources>
