@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,6 +117,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             holder.titleTextView.setTextColor(Color.WHITE);
         }
 
+        // Change text size of TextView by using the user's stored preferences
+        setTextSize(holder);
+
         holder.sectionTextView.setText(currentNews.getSection());
         // If the author does not exist, hide the authorTextView
         if (currentNews.getAuthor() == null) {
@@ -167,6 +171,54 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 shareData(currentNews);
             }
         });
+    }
+
+    /**
+     * Set the text size to the text size the user choose.
+     */
+    private void setTextSize(ViewHolder holder) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+
+        // Get the text size string from SharedPreferences and check for the value associated with the key
+        String textSize = sharedPrefs.getString(
+                mContext.getString(R.string.settings_text_size_key),
+                mContext.getString(R.string.settings_text_size_default));
+
+        // Change text size of TextView by using the user's stored preferences
+        if(textSize.equals(mContext.getString(R.string.settings_text_size_medium_value))) {
+            holder.titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp22));
+            holder.sectionTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp14));
+            holder.trailTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp16));
+            holder.authorTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp14));
+            holder.dateTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp14));
+        } else if(textSize.equals(mContext.getString(R.string.settings_text_size_small_value))) {
+            holder.titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp20));
+            holder.sectionTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp12));
+            holder.trailTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp14));
+            holder.authorTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp12));
+            holder.dateTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp12));
+        } else if(textSize.equals(mContext.getString(R.string.settings_text_size_large_value))) {
+            holder.titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp24));
+            holder.sectionTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp16));
+            holder.trailTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp18));
+            holder.authorTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp16));
+            holder.dateTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    mContext.getResources().getDimension(R.dimen.sp16));
+        }
     }
 
     /**

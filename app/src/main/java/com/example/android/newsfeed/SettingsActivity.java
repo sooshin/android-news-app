@@ -55,6 +55,11 @@ public class SettingsActivity extends AppCompatActivity {
             Preference colorTheme = findPreference(getString(R.string.settings_color_key));
             // Update the summary so that it displays the current value stored in SharedPreferences
             bindPreferenceSummaryToValue(colorTheme);
+
+            // Find the "text size" Preference object according to its key
+            Preference textSize = findPreference(getString(R.string.settings_text_size_key));
+            // Update the summary so that it displays the current value stored in SharedPreferences
+            bindPreferenceSummaryToValue(textSize);
         }
 
         /**

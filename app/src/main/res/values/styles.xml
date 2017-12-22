@@ -76,7 +76,6 @@
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:maxLines">6</item>
         <item name="android:textColor">@color/color_trail_text</item>
-        <item name="android:textSize">16sp</item>
     </style>
 
     <!-- Style for Date TextView -->

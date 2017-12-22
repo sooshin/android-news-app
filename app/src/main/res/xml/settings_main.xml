@@ -24,13 +24,20 @@
         android:key="@string/settings_order_date_key"
         android:title="@string/settings_order_date_label" />
 
-    <PreferenceCategory android:title="Customize Style">
+    <PreferenceCategory android:title="Customize Styles">
         <ListPreference
             android:defaultValue="@string/settings_color_default"
             android:entries="@array/settings_color_labels"
             android:entryValues="@array/settings_color_values"
             android:key="@string/settings_color_key"
             android:title="@string/settings_color_label" />
+
+        <ListPreference
+            android:defaultValue="@string/settings_text_size_default"
+            android:entries="@array/settings_text_size_labels"
+            android:entryValues="@array/settings_text_size_values"
+            android:key="@string/settings_text_size_key"
+            android:title="@string/settings_text_size_label" />
 
     </PreferenceCategory>
 </PreferenceScreen>
