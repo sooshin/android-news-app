@@ -78,16 +78,20 @@
     <string name="settings_order_by_relevance_label">Relevance</string>
     <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
 
+    <!-- Strings for Order Date preference [CHAR LIMIT=30] -->
     <string name="settings_order_date_label">Order Date</string>
     <string name="settings_order_date_key" translatable="false">order date</string>
     <string name="settings_order_date_default" translatable="false">@string/settings_order_date_published_value</string>
 
+    <!-- Label for order-date published option [CHAR LIMIT=20]-->
     <string name="settings_order_date_published_label">Published</string>
     <string name="settings_order_date_published_value" translatable="false">published</string>
 
+    <!-- Label for order-date newspaper-edition option [CHAR LIMIT=30]-->
     <string name="settings_order_date_newspaper_edition_label">Newspaper Edition</string>
     <string name="settings_order_date_newspaper_edition_value" translatable="false">newspaper-edition</string>
 
+    <!-- Label for order-date last-modified option [CHAR LIMIT=30]-->
     <string name="settings_order_date_last_modified_label">Last Modified</string>
     <string name="settings_order_date_last_modified_value" translatable="false">last-modified</string>
 
