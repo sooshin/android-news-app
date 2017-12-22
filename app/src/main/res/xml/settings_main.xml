@@ -17,6 +17,13 @@
         android:key="@string/settings_order_by_key"
         android:title="@string/settings_order_by_label" />
 
+    <ListPreference
+        android:defaultValue="@string/settings_order_date_default"
+        android:entries="@array/settings_order_date_labels"
+        android:entryValues="@array/settings_order_date_values"
+        android:key="@string/settings_order_date_key"
+        android:title="@string/settings_order_date_label" />
+
     <PreferenceCategory android:title="Customize Style">
         <ListPreference
             android:defaultValue="@string/settings_color_default"

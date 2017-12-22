@@ -124,6 +124,11 @@ public class BaseArticlesFragment extends Fragment
                 getString(R.string.settings_order_by_key),
                 getString(R.string.settings_order_by_default));
 
+        // Get the orderDate information from SharedPreferences and check for the value associated with the key
+        String orderDate = sharedPrefs.getString(
+                getString(R.string.settings_order_date_key),
+                getString(R.string.settings_order_date_default));
+
         // Parse breaks apart the URI string that is passed into its parameter
         Uri baseUri = Uri.parse(Constants.NEWS_REQUEST_URL);
 
@@ -138,6 +143,7 @@ public class BaseArticlesFragment extends Fragment
         uriBuilder.appendQueryParameter(getString(R.string.show_tags), getString(R.string.contributor));
         uriBuilder.appendQueryParameter(getString(R.string.api_key), getString(R.string.test));
         uriBuilder.appendQueryParameter("page-size", numOfItems);
+        uriBuilder.appendQueryParameter("order-date", orderDate);
 
         Log.e(LOG_TAG,uriBuilder.toString());
 
