@@ -123,4 +123,22 @@
     <!-- Label for color theme green preference [CHAR LIMIT=20] -->
     <string name="settings_color_green_label">Green</string>
     <string name="settings_color_green_value">green</string>
+
+    <!-- Strings for Text Size preference [CHAR LIMIT=30] -->
+    <string name="settings_text_size_label">Text Size</string>
+    <string name="settings_text_size_key" translatable="false">text size</string>
+    <string name="settings_text_size_default" translatable="false">@string/settings_text_size_medium_value</string>
+
+    <!-- Label for text size small preference [CHAR LIMIT=20] -->
+    <string name="settings_text_size_small_label">Small</string>
+    <string name="settings_text_size_small_value" translatable="false">small</string>
+
+    <!-- Label for text size medium preference [CHAR LIMIT=20] -->
+    <string name="settings_text_size_medium_label">Medium</string>
+    <string name="settings_text_size_medium_value" translatable="false">medium</string>
+
+    <!-- Label for text size large preference [CHAR LIMIT=20] -->
+    <string name="settings_text_size_large_label">Large</string>
+    <string name="settings_text_size_large_value" translatable="false">large</string>
+
 </resources>
