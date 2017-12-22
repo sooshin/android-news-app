@@ -77,4 +77,33 @@
     <!-- Label for order-by relevance option [CHAR LIMIT=20]-->
     <string name="settings_order_by_relevance_label">Relevance</string>
     <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
+
+    <!-- Strings for Color-Theme preference [CHAR LIMIT=30] -->
+    <string name="settings_color_label">Color Theme</string>
+    <string name="settings_color_key">color theme</string>
+    <string name="settings_color_default">white</string>
+
+    <!-- Label for color theme white preference [CHAR LIMIT=20] -->
+    <string name="settings_color_white_label">White</string>
+    <string name="settings_color_white_value">white</string>
+
+    <!-- Label for color theme sky blue preference [CHAR LIMIT=20] -->
+    <string name="settings_color_sky_blue_label">Sky Blue</string>
+    <string name="settings_color_sky_blue_value">sky blue</string>
+
+    <!-- Label for color theme dark blue preference [CHAR LIMIT=20] -->
+    <string name="settings_color_dark_blue_label">Dark Blue</string>
+    <string name="settings_color_dark_blue_value">dark blue</string>
+
+    <!-- Label for color theme violet preference [CHAR LIMIT=20] -->
+    <string name="settings_color_violet_label">Violet</string>
+    <string name="settings_color_violet_value">violet</string>
+
+    <!-- Label for color theme light green preference [CHAR LIMIT=20] -->
+    <string name="settings_color_light_green_label">Light Green</string>
+    <string name="settings_color_light_green_value">light green</string>
+
+    <!-- Label for color theme green preference [CHAR LIMIT=20] -->
+    <string name="settings_color_green_label">Green</string>
+    <string name="settings_color_green_value">green</string>
 </resources>

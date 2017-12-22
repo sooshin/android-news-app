@@ -45,6 +45,11 @@ public class SettingsActivity extends AppCompatActivity {
             Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
             // Update the summary so that it displays the current value stored in SharedPreferences
             bindPreferenceSummaryToValue(orderBy);
+
+            // Find the "color theme" Preference object according to its key
+            Preference colorTheme = findPreference(getString(R.string.settings_color_key));
+            // Update the summary so that it displays the current value stored in SharedPreferences
+            bindPreferenceSummaryToValue(colorTheme);
         }
 
         /**

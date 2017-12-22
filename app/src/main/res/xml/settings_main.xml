@@ -17,4 +17,13 @@
         android:key="@string/settings_order_by_key"
         android:title="@string/settings_order_by_label" />
 
+    <PreferenceCategory android:title="Customize Style">
+        <ListPreference
+            android:defaultValue="@string/settings_color_default"
+            android:entries="@array/settings_color_labels"
+            android:entryValues="@array/settings_color_values"
+            android:key="@string/settings_color_key"
+            android:title="@string/settings_color_label" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

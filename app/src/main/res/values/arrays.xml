@@ -13,4 +13,25 @@
         <item>@string/settings_order_by_oldest_value</item>
         <item>@string/settings_order_by_relevance_value</item>
     </string-array>
+
+    <!--  for the human-readable labels -->
+    <string-array name="settings_color_labels">
+        <item>@string/settings_color_white_label</item>
+        <item>@string/settings_color_sky_blue_label</item>
+        <item>@string/settings_color_dark_blue_label</item>
+        <item>@string/settings_color_violet_label</item>
+        <item>@string/settings_color_light_green_label</item>
+        <item>@string/settings_color_green_label</item>
+    </string-array>
+
+    <!-- for the value to save for a preference when an entry from entries is selected -->
+    <string-array name="settings_color_values">
+        <item>@string/settings_color_white_value</item>
+        <item>@string/settings_color_sky_blue_value</item>
+        <item>@string/settings_color_dark_blue_value</item>
+        <item>@string/settings_color_violet_value</item>
+        <item>@string/settings_color_light_green_value</item>
+        <item>@string/settings_color_green_value</item>
+    </string-array>
+
 </resources>

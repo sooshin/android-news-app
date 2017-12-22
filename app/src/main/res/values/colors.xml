@@ -12,7 +12,10 @@
     <color name="color_section">#4CAF50</color>
     <color name="color_author">#8E24AA</color>
 
-    <color name="color_background">#8bc34a</color>
+    <!-- Colors for settings of color theme-->
+    <color name="white">#ffffff</color>
+    <color name="violet">#9c27b0</color>
+    <color name="light_green">#8bc34a</color>
 
     <!-- Colors for gradient.xml file -->
     <color name="gradient_center_color">#880d0d0f</color>

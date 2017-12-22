@@ -2,7 +2,10 @@ package com.example.android.newsfeed.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -80,10 +83,39 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+
         // Find the current news that was clicked on
         final News currentNews = mNewsList.get(position);
 
         holder.titleTextView.setText(currentNews.getTitle());
+
+        // Get the color theme string from SharedPreferences and check for the value associated with the key
+        String colorTheme = sharedPrefs.getString(
+                mContext.getString(R.string.settings_color_key),
+                mContext.getString(R.string.settings_color_default));
+
+        // Change the background color of titleTextView by using the user's stored preferences
+        if (colorTheme.equals(mContext.getString(R.string.settings_color_white_value))) {
+            holder.titleTextView.setBackgroundResource(R.color.white);
+            holder.titleTextView.setTextColor(Color.BLACK);
+        }else if (colorTheme.equals(mContext.getString(R.string.settings_color_sky_blue_value))) {
+            holder.titleTextView.setBackgroundResource(R.color.nav_bar_start);
+            holder.titleTextView.setTextColor(Color.WHITE);
+        } else if (colorTheme.equals(mContext.getString(R.string.settings_color_dark_blue_value))) {
+            holder.titleTextView.setBackgroundResource(R.color.color_app_bar_text);
+            holder.titleTextView.setTextColor(Color.WHITE);
+        } else if (colorTheme.equals(mContext.getString(R.string.settings_color_violet_value))) {
+            holder.titleTextView.setBackgroundResource(R.color.violet);
+            holder.titleTextView.setTextColor(Color.WHITE);
+        } else if (colorTheme.equals(mContext.getString(R.string.settings_color_light_green_value))) {
+            holder.titleTextView.setBackgroundResource(R.color.light_green);
+            holder.titleTextView.setTextColor(Color.WHITE);
+        } else if (colorTheme.equals(mContext.getString(R.string.settings_color_green_value))) {
+            holder.titleTextView.setBackgroundResource(R.color.color_section);
+            holder.titleTextView.setTextColor(Color.WHITE);
+        }
+
         holder.sectionTextView.setText(currentNews.getSection());
         // If the author does not exist, hide the authorTextView
         if (currentNews.getAuthor() == null) {
