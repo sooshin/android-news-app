@@ -4,9 +4,6 @@ import android.content.Loader;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.android.newsfeed.News;
 import com.example.android.newsfeed.NewsLoader;
@@ -22,11 +19,6 @@ import java.util.List;
 public class SportFragment extends BaseArticlesFragment {
 
     private static final String LOG_TAG = SportFragment.class.getName();
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
 
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
@@ -49,15 +41,5 @@ public class SportFragment extends BaseArticlesFragment {
 
         // Create a new loader for the given URL
         return new NewsLoader(getActivity(), uriBuilder.toString());
-    }
-
-    @Override
-    public void onLoadFinished(Loader<List<News>> loader, List<News> newsData) {
-        super.onLoadFinished(loader, newsData);
-    }
-
-    @Override
-    public void onLoaderReset(Loader<List<News>> loader) {
-        super.onLoaderReset(loader);
     }
 }
