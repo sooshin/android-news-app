@@ -143,13 +143,13 @@ public class BaseArticlesFragment extends Fragment
         // Append query parameter and its value. (e.g. the 'show-tag=contributor')
         uriBuilder.appendQueryParameter(getString(R.string.q), "");
         uriBuilder.appendQueryParameter(getString(R.string.order_by), orderBy);
+        uriBuilder.appendQueryParameter(getString(R.string.page_size), numOfItems);
+        uriBuilder.appendQueryParameter(getString(R.string.order_date), orderDate);
+        uriBuilder.appendQueryParameter(getString(R.string.from_date), fromDate);
         uriBuilder.appendQueryParameter(getString(R.string.show_fields), getString(R.string.thumbnail_and_trail_text));
         uriBuilder.appendQueryParameter(getString(R.string.format),getString(R.string.json));
         uriBuilder.appendQueryParameter(getString(R.string.show_tags), getString(R.string.contributor));
         uriBuilder.appendQueryParameter(getString(R.string.api_key), getString(R.string.test));
-        uriBuilder.appendQueryParameter("page-size", numOfItems);
-        uriBuilder.appendQueryParameter("order-date", orderDate);
-        uriBuilder.appendQueryParameter("from-date", fromDate);
 
         Log.e(LOG_TAG,uriBuilder.toString());
 

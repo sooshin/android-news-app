@@ -35,6 +35,9 @@
 
     <string name="q">q</string>
     <string name="order_by">order-by</string>
+    <string name="page_size">page-size</string>
+    <string name="order_date">order-date</string>
+    <string name="from_date">from-date</string>
     <string name="newest">newest</string>
     <string name="show_fields">show-fields</string>
     <string name="thumbnail_and_trail_text">thumbnail,trailText</string>
