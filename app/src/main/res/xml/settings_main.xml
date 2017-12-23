@@ -17,6 +17,11 @@
         android:key="@string/settings_order_by_key"
         android:title="@string/settings_order_by_label" />
 
+    <Preference
+        android:defaultValue="@string/settings_from_date_default"
+        android:key="@string/settings_from_date_key"
+        android:title="@string/settings_from_date_label" />
+
     <ListPreference
         android:defaultValue="@string/settings_order_date_default"
         android:entries="@array/settings_order_date_labels"

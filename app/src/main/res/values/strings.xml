@@ -78,6 +78,11 @@
     <string name="settings_order_by_relevance_label">Relevance</string>
     <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
 
+    <!-- Strings for From Date preference [CHAR LIMIT=30] -->
+    <string name="settings_from_date_label">From Date</string>
+    <string name="settings_from_date_key" translatable="false">from date</string>
+    <string name="settings_from_date_default" translatable="false">2010-01-01</string>
+
     <!-- Strings for Order Date preference [CHAR LIMIT=30] -->
     <string name="settings_order_date_label">Order Date</string>
     <string name="settings_order_date_key" translatable="false">order date</string>
