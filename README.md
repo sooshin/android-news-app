@@ -8,6 +8,7 @@ This is a well-maintained API which returns information in a JSON format.
 ### Features
 * Navigation Drawer
 * Fragments
+* ViewPager plus TabLayout
 * Loaders
 * Intent
 * Guardian API
