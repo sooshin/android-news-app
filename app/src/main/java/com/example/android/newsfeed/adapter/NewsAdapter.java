@@ -105,8 +105,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             holder.authorTextView.setVisibility(View.VISIBLE);
             holder.authorTextView.setText(currentNews.getAuthor());
         }
-        // Format the date string and set the formatted date string on the textView
-        //holder.dateTextView.setText(formatDate(currentNews.getDate()));
 
         // Get time difference between the current date and web publication date and
         // set the time difference on the textView
