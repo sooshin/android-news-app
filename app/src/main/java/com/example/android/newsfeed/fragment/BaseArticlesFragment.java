@@ -39,7 +39,7 @@ public class BaseArticlesFragment extends Fragment
 
     private static final String LOG_TAG = BaseArticlesFragment.class.getName();
 
-    /** Constant value for the earthquake loader ID. */
+    /** Constant value for the news loader ID. */
     private static final int NEWS_LOADER_ID = 1;
 
     /** Adapter for the list of news */
