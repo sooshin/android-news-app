@@ -40,8 +40,6 @@
                 <TextView
                     android:id="@+id/section_card"
                     style="@style/SectionTextViewStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_toStartOf="@id/thumbnail_image_card"
                     tools:text="section" />
@@ -67,13 +65,7 @@
 
             <TextView
                 android:id="@+id/author_card"
-                style="AuthorTextViewStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/layout_margin"
-                android:layout_marginRight="@dimen/layout_margin"
-                android:textColor="@color/color_author"
-                android:textStyle="italic"
+                style="@style/AuthorTextViewStyle"
                 tools:text="author" />
 
             <RelativeLayout
@@ -83,15 +75,12 @@
                 <TextView
                     android:id="@+id/date_card"
                     style="@style/DateTextViewStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_toStartOf="@+id/share_image_card"
                     tools:text="date" />
 
                 <ImageView
                     android:id="@+id/share_image_card"
-                    style="ShareImageViewStyle"
                     android:layout_width="@dimen/image_share"
                     android:layout_height="@dimen/image_share"
                     android:layout_alignParentEnd="true"

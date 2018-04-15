@@ -65,10 +65,17 @@
         <item name="android:paddingRight">@dimen/padding</item>
     </style>
 
-    <!-- Style for section TextView -->
-    <style name="SectionTextViewStyle">
+    <!-- Style for Section, Author, and Date TextView -->
+    <style name="SectionAuthorDateStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/layout_margin</item>
         <item name="android:layout_marginRight">@dimen/layout_margin</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Style for section TextView -->
+    <style name="SectionTextViewStyle" parent="@style/SectionAuthorDateStyle">
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
         <item name="android:textColor">@color/color_section</item>
@@ -85,11 +92,14 @@
         <item name="android:textColor">@color/color_trail_text</item>
     </style>
 
+    <!-- Style for Author TextView -->
+    <style name="AuthorTextViewStyle" parent="@style/SectionAuthorDateStyle">
+        <item name="android:textColor">@color/color_author</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
     <!-- Style for Date TextView -->
-    <style name="DateTextViewStyle">
-        <item name="android:layout_marginLeft">@dimen/layout_margin</item>
-        <item name="android:layout_marginRight">@dimen/layout_margin</item>
-        <item name="android:fontFamily">sans-serif</item>
+    <style name="DateTextViewStyle" parent="@style/SectionAuthorDateStyle">
         <item name="android:textColor">@color/color_date_text</item>
     </style>
 
