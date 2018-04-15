@@ -1,6 +1,6 @@
 package com.example.android.newsfeed.fragment;
 
-import android.content.Loader;
+import android.support.v4.content.Loader;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
