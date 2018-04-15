@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -57,7 +58,7 @@ public class BaseArticlesFragment extends Fragment
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Find a reference to the {@link RecyclerView} in the layout
@@ -108,6 +109,7 @@ public class BaseArticlesFragment extends Fragment
         return rootView;
     }
 
+    @NonNull
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
 
@@ -158,7 +160,7 @@ public class BaseArticlesFragment extends Fragment
     }
 
     @Override
-    public void onLoadFinished(Loader<List<News>> loader, List<News> newsData) {
+    public void onLoadFinished(@NonNull Loader<List<News>> loader, List<News> newsData) {
         // Hide loading indicator because the data has been loaded
         mLoadingIndicator.setVisibility(View.GONE);
 
@@ -179,7 +181,7 @@ public class BaseArticlesFragment extends Fragment
     }
 
     @Override
-    public void onLoaderReset(Loader<List<News>> loader) {
+    public void onLoaderReset(@NonNull Loader<List<News>> loader) {
         // Loader reset, so we can clear out our existing data.
         mAdapter.clearAll();
     }

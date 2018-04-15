@@ -1,5 +1,6 @@
 package com.example.android.newsfeed.fragment;
 
+import android.support.annotation.NonNull;
 import android.support.v4.content.Loader;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -22,6 +23,7 @@ public class SportFragment extends BaseArticlesFragment {
 
     private static final String LOG_TAG = SportFragment.class.getName();
 
+    @NonNull
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
