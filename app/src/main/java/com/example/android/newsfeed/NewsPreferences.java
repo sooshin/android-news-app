@@ -7,6 +7,21 @@ import android.preference.PreferenceManager;
 
 import com.example.android.newsfeed.utils.Constants;
 
+import static com.example.android.newsfeed.utils.Constants.API_KEY;
+import static com.example.android.newsfeed.utils.Constants.API_KEY_PARAM;
+import static com.example.android.newsfeed.utils.Constants.FORMAT;
+import static com.example.android.newsfeed.utils.Constants.FORMAT_PARAM;
+import static com.example.android.newsfeed.utils.Constants.FROM_DATE_PARAM;
+import static com.example.android.newsfeed.utils.Constants.ORDER_BY_PARAM;
+import static com.example.android.newsfeed.utils.Constants.ORDER_DATE_PARAM;
+import static com.example.android.newsfeed.utils.Constants.PAGE_SIZE_PARAM;
+import static com.example.android.newsfeed.utils.Constants.QUERY_PARAM;
+import static com.example.android.newsfeed.utils.Constants.SECTION_PARAM;
+import static com.example.android.newsfeed.utils.Constants.SHOW_FIELDS;
+import static com.example.android.newsfeed.utils.Constants.SHOW_FIELDS_PARAM;
+import static com.example.android.newsfeed.utils.Constants.SHOW_TAGS;
+import static com.example.android.newsfeed.utils.Constants.SHOW_TAGS_PARAM;
+
 public final class NewsPreferences {
 
     /**
@@ -45,15 +60,15 @@ public final class NewsPreferences {
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         // Append query parameter and its value. (e.g. the 'show-tag=contributor')
-        uriBuilder.appendQueryParameter(context.getString(R.string.q), "");
-        uriBuilder.appendQueryParameter(context.getString(R.string.order_by), orderBy);
-        uriBuilder.appendQueryParameter(context.getString(R.string.page_size), numOfItems);
-        uriBuilder.appendQueryParameter(context.getString(R.string.order_date), orderDate);
-        uriBuilder.appendQueryParameter(context.getString(R.string.from_date), fromDate);
-        uriBuilder.appendQueryParameter(context.getString(R.string.show_fields), context.getString(R.string.thumbnail_and_trail_text));
-        uriBuilder.appendQueryParameter(context.getString(R.string.format),context.getString(R.string.json));
-        uriBuilder.appendQueryParameter(context.getString(R.string.show_tags), context.getString(R.string.contributor));
-        uriBuilder.appendQueryParameter(context.getString(R.string.api_key), context.getString(R.string.test)); // Use your API key when API rate limit exceeded
+        uriBuilder.appendQueryParameter(QUERY_PARAM, "");
+        uriBuilder.appendQueryParameter(ORDER_BY_PARAM, orderBy);
+        uriBuilder.appendQueryParameter(PAGE_SIZE_PARAM, numOfItems);
+        uriBuilder.appendQueryParameter(ORDER_DATE_PARAM, orderDate);
+        uriBuilder.appendQueryParameter(FROM_DATE_PARAM, fromDate);
+        uriBuilder.appendQueryParameter(SHOW_FIELDS_PARAM, SHOW_FIELDS);
+        uriBuilder.appendQueryParameter(FORMAT_PARAM, FORMAT);
+        uriBuilder.appendQueryParameter(SHOW_TAGS_PARAM, SHOW_TAGS);
+        uriBuilder.appendQueryParameter(API_KEY_PARAM, API_KEY); // Use your API key when API rate limit exceeded
 
         return uriBuilder;
     }
@@ -65,6 +80,6 @@ public final class NewsPreferences {
      */
     public static String getPreferredUrl(Context context, String section) {
         Uri.Builder uriBuilder = getPreferredUri(context);
-        return uriBuilder.appendQueryParameter(context.getString(R.string.section), section).toString();
+        return uriBuilder.appendQueryParameter(SECTION_PARAM, section).toString();
     }
 }

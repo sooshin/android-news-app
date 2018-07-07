@@ -39,6 +39,30 @@ public class Constants {
     /** URL for news data from the guardian data set */
     public static final String NEWS_REQUEST_URL = "https://content.guardianapis.com/search";
 
+    /** Parameters */
+    public static final String QUERY_PARAM = "q";
+    public static final String ORDER_BY_PARAM = "order-by";
+    public static final String PAGE_SIZE_PARAM = "page-size";
+    public static final String ORDER_DATE_PARAM = "order-date";
+    public static final String FROM_DATE_PARAM = "from-date";
+    public static final String SHOW_FIELDS_PARAM = "show-fields";
+    public static final String FORMAT_PARAM = "format";
+    public static final String SHOW_TAGS_PARAM = "show-tags";
+    public static final String API_KEY_PARAM = "api-key";
+    public static final String SECTION_PARAM = "section";
+
+    /** The show fields we want our API to return */
+    public static final String SHOW_FIELDS = "thumbnail,trailText";
+
+    /** The format we want our API to return */
+    public static final String FORMAT = "json";
+
+    /** The show tags we want our API to return */
+    public static final String SHOW_TAGS = "contributor";
+
+    /** API Key */
+    public static final String API_KEY = "test"; // Use your API Key when API rate limit exceeded
+
     /** Default number to set the image on the top of the textView */
     public static final int DEFAULT_NUMBER = 0;
 
