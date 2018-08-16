@@ -28,7 +28,10 @@ public static final String API_KEY = "YOUR-API-KEY";
 * Glide
 * CardView
 * RecyclerView
-* Preference
+* SharedPreferences
+
+### Video
+I've created a video demonstrating the app. Here is the link: [https://www.youtube.com/watch?v=gKGLZiO0Ps4](https://www.youtube.com/watch?v=gKGLZiO0Ps4)
 
 ### Screenshots
 
