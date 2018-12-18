@@ -30,9 +30,6 @@ public static final String API_KEY = "YOUR-API-KEY";
 * RecyclerView
 * SharedPreferences
 
-### Video
-I've created a video demonstrating the app. Here is the link: [https://www.youtube.com/watch?v=gKGLZiO0Ps4](https://www.youtube.com/watch?v=gKGLZiO0Ps4)
-
 ### Screenshots
 
 ![screenshot_main](https://user-images.githubusercontent.com/33213229/35278055-2862b4ae-008c-11e8-8bed-651025e5b6cc.png)
