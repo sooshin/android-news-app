@@ -24,7 +24,7 @@
 
 package com.example.android.newsfeed;
 
-import android.support.v4.content.AsyncTaskLoader;
+import androidx.loader.content.AsyncTaskLoader;
 import android.content.Context;
 
 import com.example.android.newsfeed.utils.QueryUtils;

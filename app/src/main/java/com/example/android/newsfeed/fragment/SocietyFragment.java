@@ -25,8 +25,8 @@
 package com.example.android.newsfeed.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.content.Loader;
+import androidx.annotation.NonNull;
+import androidx.loader.content.Loader;
 import android.util.Log;
 
 import com.example.android.newsfeed.News;
