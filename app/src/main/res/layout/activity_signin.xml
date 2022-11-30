@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height = "match_parent"
+    android:paddingLeft= "@dimen/activity_horizontal_margin"
+    android:paddingRight= "@dimen/activity_horizontal_margin">
+
+    <LinearLayout
+        android:id="@+id/app_icon"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/steam"
+                android:layout_marginRight="15dp"
+                android:contentDescription="@string/steam_logo">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/plus"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:contentDescription="@string/plus_sign">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/discord"
+                android:contentDescription="@string/discord_logo">
+            </ImageView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/steam_trends_discord"
+            android:textColor="#949494"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/app_icon"
+        android:paddingRight = "@dimen/activity_horizontal_margin"
+        android:paddingLeft= "@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="@string/sign_in"
+            android:textSize="28dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/activity_vertical_margin" />
+
+        <TextView
+            android:id="@+id/welcome_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_in"
+            android:text="@string/welcome_back"
+            android:textSize="20dp"
+            android:textColor="#949494"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/welcome_back"
+            android:text="@string/username"
+            android:textSize="18dp"
+            android:textColor="@color/nav_bar_start"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+        <EditText
+            android:id="@+id/username_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/username"
+            android:focusable="true"
+            android:hint="@string/username"
+            android:textColorHint="#000000"
+            android:minHeight="40dp"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username_editText"
+            android:text="@string/password"
+            android:textSize="18dp"
+            android:textColor="@color/nav_bar_start"
+            android:layout_marginBottom="@dimen/activity_vertical_margin" />
+
+        <EditText
+            android:id="@+id/password_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:layout_alignEnd="@+id/username_editText"
+            android:layout_alignRight="@+id/username_editText"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:ems="10"
+            android:minHeight="40dp"
+            android:hint="@string/password"
+            android:textColorHint="#000000"
+            android:inputType="textPassword"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+        <Button
+            android:id="@+id/sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password_editText"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:backgroundTint="@color/nav_bar_start"
+            android:text="@string/sign_in"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/social_profiles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_in_button"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@string/social_profiles"
+            android:textColor="#949494"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/twitter"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/social_profiles"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:backgroundTint="#1DA1F2"
+            android:text="@string/twitter"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/facebook"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/social_profiles"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:backgroundTint="#3b5998"
+            android:text="@string/facebook"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/google"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/facebook"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:backgroundTint="#DB4437"
+            android:text="@string/google"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/forgot_password"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/google"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:backgroundTint="@color/nav_bar_start"
+            android:text="@string/forgot_password"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/sign_up"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/google"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="@color/nav_bar_start"
+            android:text="@string/sign_up"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

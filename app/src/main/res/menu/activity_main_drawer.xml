@@ -1,27 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ MIT License
-  ~
-  ~ Copyright (c) 2018 Soojeong Shin
-  ~
-  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
-  ~ of this software and associated documentation files (the "Software"), to deal
-  ~ in the Software without restriction, including without limitation the rights
-  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  ~ copies of the Software, and to permit persons to whom the Software is
-  ~ furnished to do so, subject to the following conditions:
-  ~
-  ~ The above copyright notice and this permission notice shall be included in all
-  ~ copies or substantial portions of the Software.
-  ~
-  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  ~ SOFTWARE.
-  -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -31,38 +8,14 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_home"
-            android:title="@string/ic_title_home" />
+            android:title="@string/ic_title_home_steam_news" />
         <item
-            android:id="@+id/nav_world"
-            android:icon="@drawable/ic_menu_world"
-            android:title="@string/ic_title_world" />
+            android:id="@+id/steam_trends"
+            android:icon="@drawable/ic_menu_steam_trends"
+            android:title="@string/ic_title_steam_trends" />
         <item
-            android:id="@+id/nav_science"
-            android:icon="@drawable/ic_menu_science"
-            android:title="@string/ic_title_science" />
-        <item
-            android:id="@+id/nav_sport"
-            android:icon="@drawable/ic_menu_sport"
-            android:title="@string/ic_title_sport" />
-        <item
-            android:id="@+id/nav_environment"
-            android:icon="@drawable/ic_menu_environment"
-            android:title="@string/ic_title_environment" />
-        <item
-            android:id="@+id/nav_society"
-            android:icon="@drawable/ic_menu_society"
-            android:title="@string/ic_title_society" />
-        <item
-            android:id="@+id/nav_fashion"
-            android:icon="@drawable/ic_menu_fashion"
-            android:title="@string/ic_title_fashion" />
-        <item
-            android:id="@+id/nav_business"
-            android:icon="@drawable/ic_menu_business"
-            android:title="@string/ic_title_business" />
-        <item
-            android:id="@+id/nav_culture"
-            android:icon="@drawable/ic_menu_culture"
-            android:title="@string/ic_title_culture" />
+            android:id="@+id/discord_bot"
+            android:icon="@drawable/ic_menu_discord_bot"
+            android:title="@string/ic_title_discord_bot" />
     </group>
 </menu>

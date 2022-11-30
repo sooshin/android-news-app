@@ -30,16 +30,28 @@
 
     <string name="action_settings">Settings</string>
 
+    <string name="steam_trends_discord">Steam Trends + Discord</string>
+    <string name="sign_in">Sign In</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="social_profiles">or use one of your social profiles</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="continue_button">Continue</string>
+    <string name="have_an_account">Have an account?</string>
+    <string name="steam_logo">Steam Logo</string>
+    <string name="plus_sign">Plus Sign</string>
+    <string name="discord_logo">Discord Logo</string>
+
+
     <!-- Strings for items in activity_main_drawer.xml -->
-    <string name="ic_title_home">Home</string>
-    <string name="ic_title_world">World</string>
-    <string name="ic_title_science">Science</string>
-    <string name="ic_title_sport">Sport</string>
-    <string name="ic_title_environment">Environment</string>
-    <string name="ic_title_society">Society</string>
-    <string name="ic_title_fashion">Fashion</string>
-    <string name="ic_title_business">Business</string>
-    <string name="ic_title_culture">Culture</string>
+    <string name="ic_title_home_steam_news">Home (Steam News)</string>
+    <string name="ic_title_steam_trends">Steam Trends</string>
+    <string name="ic_title_discord_bot">Discord Bot</string>
 
     <!-- Text to display in the list when there are no news [CHAR LIMIT=NONE] -->
     <string name="no_news">No news found.</string>
@@ -55,7 +67,7 @@
     <string name="updated_just_now">Updated just now</string>
     <string name="share_article">Share Article</string>
 
-    <string name="the_guardian">theguardian</string>
+    <string name="steam_news_discord_bot_integration">Steam News Discord Bot Integration </string>
 
     <!-- Strings for Section -->
     <string name="world">world</string>

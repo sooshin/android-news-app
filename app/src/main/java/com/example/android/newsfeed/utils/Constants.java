@@ -91,14 +91,8 @@ public class Constants {
     public static final int DEFAULT_NUMBER = 0;
 
     /** Constants value for each fragment */
-    public static final int HOME = 0;
-    public static final int WORLD = 1;
-    public static final int SCIENCE = 2;
-    public static final int SPORT = 3;
-    public static final int ENVIRONMENT = 4;
-    public static final int SOCIETY = 5;
-    public static final int FASHION = 6;
-    public static final int BUSINESS = 7;
-    public static final int CULTURE = 8;
+    public static final int HOME_STEAM_NEWS = 0;
+    public static final int STEAM_TRENDS = 1;
+    public static final int DISCORD_BOT = 2;
 
 }

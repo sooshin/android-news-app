@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height = "match_parent"
+    android:paddingTop= "@dimen/activity_horizontal_margin"
+    android:paddingLeft= "@dimen/activity_horizontal_margin"
+    android:paddingRight= "@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/sign_up_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="@string/sign_up"
+        android:textSize="28sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginBottom="25dp" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sign_up_page"
+        android:text="@string/username"
+        android:textSize="18sp"
+        android:textColor="@color/nav_bar_start"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+    <EditText
+        android:id="@+id/username_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/username"
+        android:focusable="true"
+        android:hint="@string/username"
+        android:textColorHint="#000000"
+        android:minHeight="40dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username_editText"
+        android:text="@string/password"
+        android:textSize="18sp"
+        android:textColor="@color/nav_bar_start"
+        android:layout_marginBottom="@dimen/activity_vertical_margin" />
+
+    <EditText
+        android:id="@+id/password_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_alignEnd="@+id/username_editText"
+        android:layout_alignParentStart="true"
+        android:ems="10"
+        android:minHeight="40dp"
+        android:hint="@string/password"
+        android:textColorHint="#000000"
+        android:inputType="textPassword"
+        android:layout_marginBottom="25dp"/>
+
+    <Button
+        android:id="@+id/continue_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password_editText"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="@color/nav_bar_start"
+        android:text="@string/continue_button"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/continue_button"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/have_an_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/have_an_account"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in"
+            android:textSize="18sp"
+            android:textColor="@color/nav_bar_start"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
+</RelativeLayout>
