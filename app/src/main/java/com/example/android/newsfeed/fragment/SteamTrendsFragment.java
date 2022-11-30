@@ -25,32 +25,27 @@
 package com.example.android.newsfeed.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.loader.content.Loader;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.example.android.newsfeed.News;
-import com.example.android.newsfeed.NewsLoader;
-import com.example.android.newsfeed.NewsPreferences;
+import androidx.annotation.NonNull;
+
 import com.example.android.newsfeed.R;
 
-import java.util.List;
-
 /**
- * The SportFragment is a {@link BaseArticlesFragment} subclass that
+ * The WorldFragment is a {@link BaseArticlesFragment} subclass that
  * reuses methods of the parent class by passing the specific type of article to be fetched.
  */
-public class SportFragment extends BaseArticlesFragment {
+public class SteamTrendsFragment extends BaseArticlesFragment {
 
-    private static final String LOG_TAG = SportFragment.class.getName();
+    private static final String TAG = SteamTrendsFragment.class.getName();
 
-    @NonNull
-    @Override
-    public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
-        String sportUrl = NewsPreferences.getPreferredUrl(getContext(), getString(R.string.sport));
-        Log.e(LOG_TAG, sportUrl);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        View homeView = inflater.inflate(R.layout.content_steam_trends, container, false);
 
-        // Create a new loader for the given URL
-        return new NewsLoader(getActivity(), sportUrl);
+        return homeView;
     }
+
 }

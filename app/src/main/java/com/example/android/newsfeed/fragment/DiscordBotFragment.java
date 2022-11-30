@@ -25,32 +25,30 @@
 package com.example.android.newsfeed.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.loader.content.Loader;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
 
-import com.example.android.newsfeed.News;
-import com.example.android.newsfeed.NewsLoader;
-import com.example.android.newsfeed.NewsPreferences;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.android.newsfeed.R;
 
 import java.util.List;
 
 /**
- * The EnvironmentFragment is a {@link BaseArticlesFragment} subclass that
+ * The WorldFragment is a {@link BaseArticlesFragment} subclass that
  * reuses methods of the parent class by passing the specific type of article to be fetched.
  */
-public class EnvironmentFragment extends BaseArticlesFragment {
+public class DiscordBotFragment extends BaseArticlesFragment {
 
-    private static final String LOG_TAG = EnvironmentFragment.class.getName();
+    private static final String TAG = DiscordBotFragment.class.getName();
 
-    @NonNull
-    @Override
-    public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
-        String environmentUrl = NewsPreferences.getPreferredUrl(getContext(), getString(R.string.environment));
-        Log.e(LOG_TAG, environmentUrl);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        View homeView = inflater.inflate(R.layout.content_discord_bot, container, false);
 
-        // Create a new loader for the given URL
-        return new NewsLoader(getActivity(), environmentUrl);
+        return homeView;
     }
 }

@@ -30,15 +30,9 @@ import android.content.Context;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.android.newsfeed.R;
-import com.example.android.newsfeed.fragment.BusinessFragment;
-import com.example.android.newsfeed.fragment.CultureFragment;
-import com.example.android.newsfeed.fragment.EnvironmentFragment;
-import com.example.android.newsfeed.fragment.FashionFragment;
+import com.example.android.newsfeed.fragment.DiscordBotFragment;
 import com.example.android.newsfeed.fragment.HomeFragment;
-import com.example.android.newsfeed.fragment.ScienceFragment;
-import com.example.android.newsfeed.fragment.SocietyFragment;
-import com.example.android.newsfeed.fragment.SportFragment;
-import com.example.android.newsfeed.fragment.WorldFragment;
+import com.example.android.newsfeed.fragment.SteamTrendsFragment;
 import com.example.android.newsfeed.utils.Constants;
 
 /**
@@ -71,9 +65,9 @@ public class CategoryFragmentPagerAdapter extends FragmentPagerAdapter {
             case Constants.HOME_STEAM_NEWS:
                 return new HomeFragment();
             case Constants.STEAM_TRENDS:
-                return new WorldFragment();
+                return new SteamTrendsFragment();
             case Constants.DISCORD_BOT:
-                return new WorldFragment();
+                return new DiscordBotFragment();
             default:
                 return null;
         }

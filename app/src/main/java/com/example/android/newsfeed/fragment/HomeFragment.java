@@ -24,12 +24,29 @@
 
 package com.example.android.newsfeed.fragment;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.android.newsfeed.R;
+
 /**
  * The HomeFragment is a {@link BaseArticlesFragment} subclass that
  * reuses methods of the parent class
  */
 public class HomeFragment extends BaseArticlesFragment {
 
-    public static final String LOG_TAG = HomeFragment.class.getName();
+    public static final String TAG = HomeFragment.class.getName();
 
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        View homeView = inflater.inflate(R.layout.content_home_steam_news, container, false);
+
+        return homeView;
+    }
 }
