@@ -43,15 +43,16 @@
     <string name="sign_up">Sign Up</string>
     <string name="continue_button">Continue</string>
     <string name="have_an_account">Have an account?</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
     <string name="steam_logo">Steam Logo</string>
     <string name="plus_sign">Plus Sign</string>
     <string name="discord_logo">Discord Logo</string>
-
 
     <!-- Strings for items in activity_main_drawer.xml -->
     <string name="ic_title_home_steam_news">Home (Steam News)</string>
     <string name="ic_title_steam_trends">Steam Trends</string>
     <string name="ic_title_discord_bot">Discord Bot</string>
+    <string name="ic_title_sign_in">Sign In</string>
 
     <!-- Text to display in the list when there are no news [CHAR LIMIT=NONE] -->
     <string name="no_news">No news found.</string>

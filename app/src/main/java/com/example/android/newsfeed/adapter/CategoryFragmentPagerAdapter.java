@@ -73,7 +73,7 @@ public class CategoryFragmentPagerAdapter extends FragmentPagerAdapter {
             case Constants.STEAM_TRENDS:
                 return new WorldFragment();
             case Constants.DISCORD_BOT:
-                return new ScienceFragment();
+                return new WorldFragment();
             default:
                 return null;
         }
@@ -84,7 +84,7 @@ public class CategoryFragmentPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public int getCount() {
-        return 9;
+        return 3;
     }
 
     /**

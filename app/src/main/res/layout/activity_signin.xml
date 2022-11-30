@@ -13,7 +13,7 @@
         android:gravity="bottom"
         android:orientation="vertical"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp">
+        android:layout_marginBottom="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -189,26 +189,29 @@
             android:text="@string/google"
             android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/forgot_password"
-            android:layout_width="150dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/google"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true"
-            android:backgroundTint="@color/nav_bar_start"
-            android:text="@string/forgot_password"
-            android:textColor="@color/white" />
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/have_an_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dont_have_an_account"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp" />
 
-        <Button
-            android:id="@+id/sign_up"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/google"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="@color/nav_bar_start"
-            android:text="@string/sign_up"
-            android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/lead_to_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_up"
+                android:textSize="18sp"
+                android:textColor="@color/nav_bar_start"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
 
     </RelativeLayout>
 

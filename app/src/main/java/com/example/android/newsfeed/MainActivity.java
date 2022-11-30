@@ -105,6 +105,9 @@ public class MainActivity extends AppCompatActivity
             viewPager.setCurrentItem(Constants.STEAM_TRENDS);
         } else if (id == R.id.discord_bot) {
             viewPager.setCurrentItem(Constants.DISCORD_BOT);
+        } else if (id == R.id.main_sign_in) {
+            Intent intent = new Intent(this, SigninActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

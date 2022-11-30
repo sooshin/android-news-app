@@ -17,5 +17,9 @@
             android:id="@+id/discord_bot"
             android:icon="@drawable/ic_menu_discord_bot"
             android:title="@string/ic_title_discord_bot" />
+        <item
+            android:id="@+id/main_sign_in"
+            android:icon="@drawable/ic_menu_discord_bot"
+            android:title="@string/ic_title_sign_in" />
     </group>
 </menu>
